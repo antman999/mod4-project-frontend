@@ -1,5 +1,5 @@
 import React from 'react';
-import PetsContainer from './containers/PetContainer'
+import PetsContainer from './containers/PetsContainer'
 
 function App() {
   return (
