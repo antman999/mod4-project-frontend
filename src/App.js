@@ -1,10 +1,10 @@
 import React from 'react';
-import PetContainer from './containers/PetContainer'
+import PetsContainer from './containers/PetContainer'
 
 function App() {
   return (
     <div>
-       <PetContainer />
+       <PetsContainer />
     </div>
   );
 }
