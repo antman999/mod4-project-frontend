@@ -1,7 +1,7 @@
 import React from 'react'
 import PetCard from '../components/PetCard'
 
-const PetContainer = () => {
+const PetsContainer = () => {
     return (
         <div>
           <PetCard />
@@ -9,4 +9,4 @@ const PetContainer = () => {
     )
 }
 
-export default PetContainer
+export default PetsContainer
