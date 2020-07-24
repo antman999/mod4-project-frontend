@@ -1,5 +1,8 @@
 import React from 'react'
 import PetCard from '../components/PetCard'
+import {BrowserRouter as Router, Route} from 'react-router-dom'
+import About from '../components/About'
+import ContactForm from '../components/ContactForm'
 
 class PetsContainer extends React.Component {
 
@@ -41,7 +44,12 @@ class PetsContainer extends React.Component {
 				<button type='button' class='btn btn-dark'>
 					Dark
 				</button>
-				<PetCard pets={this.state.pets} />
+				<Router>
+				  <Route path="/pets" render={(routerProps) => <PetCard pets={this.state.pets} {...routerProps} /> } />
+				  <Route path="/about" component={About} />
+                  <Route path="/contact" render={(routerProps) => <ContactForm  {...routerProps} /> } />
+				</Router>
+				
 			</div>
     );
   }
