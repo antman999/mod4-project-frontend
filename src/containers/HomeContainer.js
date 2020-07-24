@@ -25,13 +25,33 @@ class HomeContainer extends Component {
   render() {
     return (
 			<div>
-				<Header />
 				<PetsContainer />
 				<Router>
-				  <Route exact path="/pets/:id" render={(routerProps) => <PetPage pets={this.state.pets} {...routerProps} /> } />
-				  <Route exact path="/pets" render={(routerProps) => <PetCard pets={this.state.pets} {...routerProps} /> } />
-				  <Route path="/about" component={About} />
-                  <Route path="/contact" render={(routerProps) => <ContactForm  {...routerProps} /> } />
+					<Route
+						exact
+						path='/pets/:id'
+						render={routerProps => (
+							<PetPage
+								pets={this.state.pets}
+								{...routerProps}
+							/>
+						)}
+					/>
+					<Route
+						exact
+						path='/pets'
+						render={routerProps => (
+							<PetCard
+                pets={this.state.pets}
+                {...routerProps}
+							/>
+						)}
+					/>
+					<Route path='/about' component={About} />
+					<Route
+						path='/contact'
+						render={routerProps => <ContactForm {...routerProps} />}
+					/>
 				</Router>
 			</div>
 		);
