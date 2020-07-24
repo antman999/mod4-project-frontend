@@ -1,10 +1,20 @@
 import React from 'react'
 
-const PetCard = () => {
+const PetCard = (props) => {
     return (
-        <div>
-
+        <>
+        {props.pets.map(pet =>
+        <div className="pet-card">
+           
+            <img src={pet.img_url} alt={pet.name} />
+            <h2>{pet.type}</h2>
+            <h3>{pet.breed}</h3>
+            <h4>{pet.age}</h4>
+            <h4>{pet.sex}</h4>
+        
         </div>
+        )}
+        </>
     )
 }
 
