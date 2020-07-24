@@ -11,3 +11,21 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.nav-link {
+  display: block;
+  padding: .5rem 5rem;
+}
+
+.masthead {
+  height: 65vh;
+  min-height: 400px;
+  background-image: url('https://atlantahumane.org/wp-content/uploads/2020/06/Adopt-a-Dog-Page-Header-Image.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.font-weight-bold{
+  color:#FAE47A
+}

@@ -1,10 +1,12 @@
 import React from 'react';
-import PetsContainer from './containers/PetsContainer'
+import NavBar from './NavBar'
+import HomeContainer from './containers/HomeContainer';
 
 function App() {
   return (
     <div>
-       <PetsContainer />
+      <NavBar />
+      <HomeContainer />
     </div>
   );
 }
