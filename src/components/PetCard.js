@@ -11,6 +11,7 @@ const PetCard = (props) => {
             <h3>{pet.breed}</h3>
             <h4>{pet.age}</h4>
             <h4>{pet.sex}</h4>
+            <button type="button" class="btn btn-outline-primary">See More Info</button>
         
         </div>
         )}
