@@ -3,6 +3,8 @@ import PetCard from '../components/PetCard'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 import About from '../components/About'
 import ContactForm from '../components/ContactForm'
+import PetPage from '../components/PetPage'
+
 
 class PetsContainer extends React.Component {
 
@@ -45,7 +47,8 @@ class PetsContainer extends React.Component {
 					Dark
 				</button>
 				<Router>
-				  <Route path="/pets" render={(routerProps) => <PetCard pets={this.state.pets} {...routerProps} /> } />
+				  <Route exact path="/pets/:id" render={(routerProps) => <PetPage pets={this.state.pets} {...routerProps} /> } />
+				  <Route exact path="/pets" render={(routerProps) => <PetCard pets={this.state.pets} {...routerProps} /> } />
 				  <Route path="/about" component={About} />
                   <Route path="/contact" render={(routerProps) => <ContactForm  {...routerProps} /> } />
 				</Router>
