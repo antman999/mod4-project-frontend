@@ -24,8 +24,36 @@ code {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  margin-bottom: 1em;
 }
 
 .font-weight-bold{
   color:#FAE47A
+}
+
+.card{
+  display: flex;
+  flex-flow: row wrap;
+ 
+}
+
+.card-body{
+  border: solid;
+  border-color: black;
+  width: 17em;
+  height: 40vw;
+  margin-bottom: 1em;
+  margin-left: 1em;
+  margin-right: 1em;
+  background-color: white;
+  text-align: center;
+  flex-shrink: 3
+  
+}
+.card-pic{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 55%;
+  margin-bottom: 0.5em;
 }
