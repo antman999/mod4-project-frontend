@@ -1,7 +1,20 @@
 import React from 'react'
 import PetCard from '../components/PetCard'
 
-const PetsContainer = () => {
+class PetsContainer extends React.Component {
+
+  state = {
+    pets: []
+  }
+
+  componentDidMount(){
+    fetch('http://localhost:3001/api/v1/pets')
+    .then(res => res.json())
+    .then(pets => {
+      this.setState({ pets })
+    })
+  }
+    render(){
     return (
 			<div>
 				<button type='button' class='btn btn-primary'>
@@ -28,9 +41,10 @@ const PetsContainer = () => {
 				<button type='button' class='btn btn-dark'>
 					Dark
 				</button>
-				<PetCard />
+				<PetCard pets={this.state.pets} />
 			</div>
-		);
+    );
+  }
 }
 
 export default PetsContainer
