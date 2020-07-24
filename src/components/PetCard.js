@@ -2,20 +2,27 @@ import React from 'react'
 
 const PetCard = (props) => {
     return (
-        <>
+
+        <div className="card">
+         
         {props.pets.map(pet =>
-        <div className="pet-card">
+        
+        <div className="card-body">
            
-            <img src={pet.img_url} alt={pet.name} />
-            <h2>{pet.type}</h2>
-            <h3>{pet.breed}</h3>
-            <h4>{pet.age}</h4>
-            <h4>{pet.sex}</h4>
+            <img className="card-pic"src={pet.img_url} alt={pet.name} />
+            <h3 className="card-title">{pet.name}</h3>
+            <h5 className="card-subtitle">{pet.pet_type}</h5>
+            <h5>Breed: {pet.breed}</h5>
+            <p>Age: {pet.age}</p>
+            <p>Sex: {pet.sex}</p>
             <button type="button" class="btn btn-outline-primary">See More Info</button>
         
         </div>
         )}
-        </>
+        </div>
+    
+    
+    
     )
 }
 
