@@ -1,13 +1,14 @@
 import React from 'react'
 import './index.css';
 
+
 const NavBar = (props) => {
   return (
 		<div>
 			<nav>
 				<ul class='nav justify-content-center'>
 					<li class='nav-item'>
-						<a class='nav-link active' href='#'>
+						<a class='nav-link active' href="#">
 							All Our Pets
 						</a>
 					</li>

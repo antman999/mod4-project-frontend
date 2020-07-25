@@ -6,6 +6,7 @@ import {BrowserRouter as Router, Route} from 'react-router-dom'
 import About from '../components/About'
 import ContactForm from '../components/ContactForm'
 import PetPage from '../components/PetPage'
+import Home from '../components/Home'
 
 
 class HomeContainer extends Component {
@@ -31,6 +32,7 @@ class HomeContainer extends Component {
 			<Route exact path='/pets' render={routerProps => (<PetCard pets={this.state.pets} {...routerProps}/>)} />
 			<Route path='/about' component={About} />
 			<Route path='/contact'render={routerProps => <ContactForm {...routerProps} />} />
+			<Route exact path='/' component={Home} />
 		</Router>
 	  </div>
     )
