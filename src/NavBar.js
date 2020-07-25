@@ -1,5 +1,7 @@
 import React from 'react'
 import './index.css';
+import { Link } from 'react-router-dom';
+
 
 const NavBar = (props) => {
   return (
@@ -7,7 +9,7 @@ const NavBar = (props) => {
 			<nav>
 				<ul class='nav justify-content-center'>
 					<li class='nav-item'>
-						<a class='nav-link active' href='#'>
+						<a class='nav-link active' href="/pets">
 							All Our Pets
 						</a>
 					</li>
@@ -45,7 +47,7 @@ const NavBar = (props) => {
 					<li class='nav-item'>
 						<a
 							class='nav-link disabled'
-							href='#'
+							href='/login'
 							tabindex='-1'
 							aria-disabled='true'>
 							Sign Up / Login
