@@ -8,6 +8,7 @@ import ContactForm from '../components/ContactForm'
 import PetPage from '../components/PetPage'
 import Home from '../components/Home'
 import Login from '../components/Login'
+import CreatePet from '../components/CreatePet'
 
 
 class HomeContainer extends Component {
@@ -35,6 +36,7 @@ class HomeContainer extends Component {
 			<Route path='/contact'render={routerProps => <ContactForm {...routerProps} />} />
 			<Route exact path='/' component={Home} />
 			<Route exact path='/login' component={Login} />
+			<Route exact path='/create' component={CreatePet} />
 		</Router>
 	  </div>
     )

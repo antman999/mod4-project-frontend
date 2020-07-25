@@ -70,3 +70,21 @@ code {
   text-align: center;
   margin-top: .25em;
 }
+
+.create-header{
+  text-align: center;
+  margin: 1em;
+}
+
+.create-form{
+  text-align: center;
+}
+
+.login-header{
+  text-align: center;
+  margin: 1em;
+}
+
+.login-form{
+  text-align: center;
+}
