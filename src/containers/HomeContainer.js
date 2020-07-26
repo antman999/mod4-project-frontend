@@ -24,7 +24,13 @@ class HomeContainer extends Component {
 		  this.setState({ pets })
 		})
 	  }
-	  
+
+	addPet = (pet) => {
+		this.setState({
+			pets: [...this.state.pets, pet ]
+		})
+	}
+
   render() {
     return (
 	  <div>
@@ -36,7 +42,7 @@ class HomeContainer extends Component {
 			<Route path='/contact'render={routerProps => <ContactForm {...routerProps} />} />
 			<Route exact path='/' component={Home} />
 			<Route exact path='/login' component={Login} />
-			<Route exact path='/create' component={CreatePet} />
+			<Route exact path='/create' render={routerProps => <CreatePet {...routerProps} addPet={this.addPet} />} /> />
 		</Router>
 	  </div>
     )
