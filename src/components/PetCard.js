@@ -10,7 +10,8 @@ const PetCard = (props) => {
 	
         <div className="card">
          
-        {props.pets.map(pet =>
+                {props.pets.map(pet =>
+            
         
         <div className="card-body">
            

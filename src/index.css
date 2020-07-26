@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #efeef1;
 }
 
 code {
@@ -15,6 +16,7 @@ code {
 .nav-link {
   display: block;
   padding: .5rem 5rem;
+   background-color: #efeef1;
 }
 
 .masthead {
@@ -38,8 +40,7 @@ code {
 }
 
 .card-body{
-  border: solid;
-  border-color: black;
+  
   width: 17em;
   height: 40vw;
   margin-bottom: 1em;
@@ -69,4 +70,88 @@ code {
 .home-text{
   text-align: center;
   margin-top: .25em;
+}
+
+.container{
+ display: grid;
+ place-items: center;
+}
+.d-block, .w-40{
+   display: grid;
+    justify-content: center;
+    margin: auto;
+    width: 55%;
+    height: 40%;
+    max-width: 371px;
+    max-height: 366px;
+}
+
+.carousel,.slide{
+  margin: 50px;
+  padding: 20px;
+  border-radius: .5em;
+  /* color: black; */
+  background-color: #fff;
+     border-bottom-right-radius: 25px !important;
+     border-top-right-radius: 25px !important;
+       border-bottom-left-radius: 25px !important;
+       border-top-left-radius: 25px !important;
+border: 1px solid #dbdbdb
+}
+
+.carousel-control-next{
+   background-color:#10101047;
+   border-bottom-right-radius: 25px !important;
+   border-top-right-radius: 25px !important;
+}
+
+.carousel-control-prev {
+  background-color: #10101047;
+  border-bottom-left-radius: 25px !important;
+  border-top-left-radius: 25px !important;
+}
+  
+.col-6{
+background-color: #fff;
+/* margin: 50px; */
+padding: 20px;
+border-radius: .5em;
+display: grid;
+justify-content: center;
+margin: auto;
+/* width: 55%; */
+/* height: 40%; */
+margin-left: 6%;
+border-color: black;
+margin-right: -50%;
+border: 1px solid #dbdbdb;
+
+}
+
+.location{
+  margin-bottom: 50px;
+  text-align: center;
+
+  border-bottom: 1px solid #cacaca;
+}
+
+.petName{
+  text-align: center;
+}
+
+.about{
+  margin-bottom: 3%;
+}
+.col-3 {
+  background-color: #fff;
+  /* margin: 50px; */
+  /* margin-right: -50%; */
+  border: 1px solid #dbdbdb;
+  padding: 20px;
+  border-radius: .5em;
+  display: grid;
+  justify-content: center;
+  /* margin: auto; */
+  right: -62%;
+max-height: 210px;
 }
