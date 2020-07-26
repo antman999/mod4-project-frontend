@@ -155,3 +155,20 @@ border: 1px solid #dbdbdb;
   right: -62%;
 max-height: 210px;
 }
+.create-header{
+  text-align: center;
+  margin: 1em;
+}
+
+.create-form{
+  text-align: center;
+}
+
+.login-header{
+  text-align: center;
+  margin: 1em;
+}
+
+.login-form{
+  text-align: center;
+}
