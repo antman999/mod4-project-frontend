@@ -41,7 +41,8 @@ class CreatePet extends React.Component {
         })
         .then(res => res.json())
         .then(pet => {
-            console.log(pet)
+          this.props.addPet(pet)
+          this.props.history.push(`/pets/${pet.id}`)
         })
 
     }
