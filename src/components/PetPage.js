@@ -9,25 +9,28 @@ const PetPage = props => {
 	console.log(petId);
 
 	let displayPet = props.pets.find(pet => pet.id === parseInt(petId));
-	console.log(props);
+	console.log(displayPet.photos.map(photo => photo.full));
 	return (
 		<>
 			{displayPet ? (
+        
 				<div>
 					<Container fluid='md'>
 						<Row>
 							<Col>
-								<Carousel>
-									<Carousel.Item>
+                <Carousel>
+                  {displayPet.photos.map(photo =>
+                    <Carousel.Item>
 										<img
 											className='d-block w-40'
-											src={displayPet.img_url}
+											src={photo.full}
 											alt='First slide'
-										/>
-										<Carousel.Caption>
+                      />
+                    <Carousel.Caption>
 											<h3>{displayPet.breeds.primary}</h3>
 										</Carousel.Caption>
 									</Carousel.Item>
+                    )}
 								</Carousel>
 							</Col>
 						</Row>
