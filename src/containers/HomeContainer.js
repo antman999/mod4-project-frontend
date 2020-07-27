@@ -14,16 +14,45 @@ import CreatePet from '../components/CreatePet'
 class HomeContainer extends Component {
 
     state = {
-		pets: []
+      pets: [],
+      token:''
 	  }
 	
 	  componentDidMount(){
-		fetch('http://localhost:3001/api/v1/pets')
-		.then(res => res.json())
-		.then(pets => {
-		  this.setState({ pets })
-		})
-	  }
+      fetch('https://api.petfinder.com/v2/oauth2/token', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          "grant_type": "client_credentials", "client_id": '3ZzjR0Nnn3z0kJL2kUa9nIZFOkf5qmGUDsEAWfcEdhQvNWfjJN', "client_secret": '0B9CuxL5JNVl9DcTIOmCzvDRsK6mpzSQijJReNCp'
+        }),
+      })
+				.then(res => res.json())
+        .then(token => {
+          this.setState({ token: token }, () => this.getPets());
+        });
+        
+    }
+  
+  
+  getPets = () => {
+    fetch('https://api.petfinder.com/v2/animals', {
+				method: 'GET',
+				headers: {
+					Accept: 'application/json',
+					'Content-Type': 'application/json',
+					Authorization: 'Bearer ' + this.state.token.access_token
+				},
+			})
+				.then(resp => resp.json())
+				.then(data => {
+        	this.setState({ pets: data.animals });
+  
+});
+  }
+  
 
 	addPet = (pet) => {
 		this.setState({
@@ -32,6 +61,7 @@ class HomeContainer extends Component {
 	}
 
   render() {
+   console.log(this.state.pets)
     return (
 	  <div>
 		<PetsContainer />
@@ -42,7 +72,7 @@ class HomeContainer extends Component {
 			<Route path='/contact'render={routerProps => <ContactForm {...routerProps} />} />
 			<Route exact path='/' component={Home} />
 			<Route exact path='/login' component={Login} />
-			<Route exact path='/create' render={routerProps => <CreatePet {...routerProps} addPet={this.addPet} />} /> />
+			<Route exact path='/create' render={routerProps => <CreatePet {...routerProps} addPet={this.addPet} />} /> 
 		</Router>
 	  </div>
     )

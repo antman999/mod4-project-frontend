@@ -15,12 +15,12 @@ const PetCard = (props) => {
         
         <div className="card-body">
            
-            <img className="card-pic"src={pet.img_url} alt={pet.name} />
+            <img className="card-pic"src={pet.photos.full} alt={pet.name} />
             <h3 className="card-title">{pet.name}</h3>
             <h5 className="card-subtitle">{pet.pet_type}</h5>
-            <h5>Breed: {pet.breed}</h5>
+            <h5>Breed: {pet.breeds.primary}</h5>
             <p>Age: {pet.age}</p>
-            <p>Sex: {pet.sex}</p>
+            <p>Sex: {pet.gender}</p>
           <button onClick={() => props.history.push(`/pets/${pet.id}`)}type='button' class='btn btn-outline-primary'>
 							See More Info
 		</button>

@@ -25,7 +25,7 @@ const PetPage = props => {
 											alt='First slide'
 										/>
 										<Carousel.Caption>
-											<h3>{displayPet.breed}</h3>
+											<h3>{displayPet.breeds.primary}</h3>
 										</Carousel.Caption>
 									</Carousel.Item>
 								</Carousel>
@@ -40,16 +40,7 @@ const PetPage = props => {
 							<h6 className='location'>New york (Make Shift)</h6>
 							<h2 className='about'>About our furry friend</h2>
 							<p className='text'>
-								Alot of word were we will include an about from the api info but
-								for now its this stuff that doesnt make sense eudowords are
-								words which look like they are real, but actually have no
-								meaning. They are easy to pronounce, and this also helps to make
-								them sound like they are real. Pseudowords have been around ever
-								since our brain evolved the ability to process language, it is
-								probably how all our modern day words came into being. A
-								language has a lot of sounds called phonemes which when used in
-								various combinations, you can create relatable sounds that do
-								not have any me
+                {displayPet.description}
 							</p>
 						</Col>
             <Col xs={3}>
