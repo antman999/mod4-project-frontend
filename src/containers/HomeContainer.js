@@ -61,7 +61,6 @@ class HomeContainer extends Component {
 	}
 
   render() {
-   console.log(this.state.pets)
     return (
 	  <div>
 		<PetsContainer />
