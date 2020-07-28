@@ -1,5 +1,6 @@
 import React from 'react'
 import LostForm from './LostForm'
+import ContactForm from './ContactForm'
 
 class LostPet extends React.Component {
 
@@ -8,7 +9,7 @@ class LostPet extends React.Component {
        pet_type: '',
        location: '',
        img_url: '',
-       form: 'false'
+       form: 'false',
     }
     
     componentDidMount(){
@@ -61,6 +62,11 @@ class LostPet extends React.Component {
 
     }
 
+    moreInfo = (e) => {
+        this.props.history.push('/contact')
+
+    }
+
     render(){
         console.log(this.state)
         return(
@@ -71,6 +77,7 @@ class LostPet extends React.Component {
                 <button onClick={this.formToggle}  class='btn btn-primary'>{this.state.form ? 'Add Lost Pet' : 'Hide Form' }</button>
                 </div>
 
+
                 {this.state.form ? null 
                 : <LostForm 
                   petType={this.state.pet_type}
@@ -79,17 +86,21 @@ class LostPet extends React.Component {
                   formHandler={this.formHandler} 
                   submitHandler={this.submitHandler} />}
                 {this.state.lostPets.map(lostPet => 
+                
                 <div className="card-body">
-            
                     <>
                     <img className="card-pic" src={lostPet.img_url} /> 
+                    <h3 className="card-title">Case Number: {lostPet.id}</h3>
                     <h3 className="card-title">Location Found: {lostPet.location}</h3>
                     <h5 className="card-subtitle">Found Pet Type: {lostPet.pet_type}</h5>
-                    <button onClick={null} class='btn btn-outline-primary'>See More Info</button>
+                    <button onClick={this.moreInfo} 
+                    id={lostPet.id} class='btn btn-outline-primary'>Have More Info?</button>
                     </>
-               
+                
                 </div>
                  )}
+
+
 
             </div>
         )
