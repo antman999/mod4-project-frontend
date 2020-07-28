@@ -9,7 +9,7 @@ import ContactForm from '../components/ContactForm'
 import PetPage from '../components/PetPage'
 import Home from '../components/Home'
 import Login from '../components/Login'
-import CreatePet from '../components/CreatePet'
+import LostPet from '../components/LostPet'
 
 
 
@@ -56,11 +56,11 @@ class HomeContainer extends Component {
   }
   
 
-	addPet = (pet) => {
-		this.setState({
-			pets: [...this.state.pets, pet ]
-		})
-	}
+		// addPet = (pet) => {
+		// 	this.setState({
+		// 		pets: [...this.state.pets, pet ]
+		// 	})
+		// }
 
 	filterHandler = (e) => {
 		this.setState({
@@ -95,7 +95,7 @@ class HomeContainer extends Component {
 			<Route path='/contact'render={routerProps => <ContactForm {...routerProps} />} />
 			<Route exact path='/' component={Home} />
 			<Route exact path='/login' component={Login} />
-			<Route exact path='/create' render={routerProps => <CreatePet {...routerProps} addPet={this.addPet} />} /> 
+			<Route exact path='/lost' render={routerProps => <LostPet {...routerProps} addPet={this.addPet} />} /> 
 		</Router>
 	  </div>
     )
