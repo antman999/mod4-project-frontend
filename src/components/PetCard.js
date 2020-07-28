@@ -3,18 +3,17 @@ import Header from '../Header'
 import PetPage from './PetPage'
 
 const PetCard = (props) => {
-  
     return (
         <>
 				<Header />
-	
+	       {console.log(props)}
         <div className="card">
          
-                {props.pets.map(pet =>
+        {props.pets.map(pet =>
                
         <div className="card-body">
-          
-            {pet.photos.map(photo => <img className="card-pic" src={photo.full} /> )}
+    
+        {pet.photos.map(photo => (<img className="card-pic" src={photo.full} /> ))}
             <h3 className="card-title">{pet.name}</h3>
             <h5 className="card-subtitle">{pet.type}</h5>
             <h5>Breed: {pet.breeds.primary}</h5>
@@ -22,7 +21,7 @@ const PetCard = (props) => {
             <p>Sex: {pet.gender}</p>
           <button onClick={() => props.history.push(`/pets/${pet.id}`)}type='button' class='btn btn-outline-primary'>
 							See More Info
-		</button>
+		      </button>
         
         </div>
         )}
