@@ -9,7 +9,7 @@ import ContactForm from '../components/ContactForm'
 import PetPage from '../components/PetPage'
 import Home from '../components/Home'
 import Login from '../components/Login'
-import CreatePet from '../components/CreatePet'
+import LostPet from '../components/LostPet'
 
 
 
@@ -55,11 +55,11 @@ class HomeContainer extends Component {
 			});
 	};
 
-	addPet = pet => {
-		this.setState({
-			pets: [...this.state.pets, pet],
-		});
-	};
+		// addPet = (pet) => {
+		// 	this.setState({
+		// 		pets: [...this.state.pets, pet ]
+		// 	})
+		// }
 
 	filterHandler = e => {
 		this.setState({
