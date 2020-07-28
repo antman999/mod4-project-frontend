@@ -68,6 +68,7 @@ class Login extends React.Component {
 							// // send them somewhere
 							// // storing the user object SOMEWHERE
 							this.props.setUser(response);
+							this.props.history.push('/pets')
 					}
 				});
 		} else {
@@ -76,6 +77,7 @@ class Login extends React.Component {
 	};
 
 	render() {
+		console.log(this.props)
 		return (
 			<div>
 				<h3 className='login-header'>Login!</h3>
@@ -121,7 +123,7 @@ class Login extends React.Component {
 						name='password'
 						value={this.state.password}
 						onChange={this.handleChange}
-						type='text'
+						type='password'
 						placeholder='password'
 					/>
 
@@ -129,7 +131,7 @@ class Login extends React.Component {
 						name='passwordC'
 						value={this.state.passwordC}
 						onChange={this.handleChange}
-						type='text'
+						type='password'
 						placeholder=' confirm password'
 					/>
 				
