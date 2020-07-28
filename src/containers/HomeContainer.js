@@ -40,7 +40,7 @@ class HomeContainer extends Component {
   
   
   getPets = () => {
-    fetch('https://api.petfinder.com/v2/animals?type=dog&page=2', {
+    fetch('https://api.petfinder.com/v2/animals', {
 			method: 'GET',
 			headers: {
 				Accept: 'application/json',
@@ -78,7 +78,7 @@ class HomeContainer extends Component {
 	 else if(this.state.filterBy === 'birds'){
 		filteredPets = filteredPets.filter(pet => pet.type === 'Bird')
 	 }
-	 else if(this.state.filterBy === 'birds'){
+	 else if(this.state.filterBy === 'all'){
 		filteredPets = filteredPets
 	 }
  	return (

@@ -21,7 +21,7 @@ const NavBar = (props) => {
 							role='button'
 							aria-haspopup='true'
 							aria-expanded='false'>
-							Type
+							Filter by Type
 						</a>
 						<div class='dropdown-menu'>
 							<a onClick={props.filterHandler} class='dropdown-item' name="dogs">
