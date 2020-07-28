@@ -3,7 +3,7 @@ import Header from '../Header'
 import PetPage from './PetPage'
 
 const PetCard = (props) => {
-    console.log(props.pets);
+  
     return (
         <>
 				<Header />
@@ -13,8 +13,8 @@ const PetCard = (props) => {
                 {props.pets.map(pet =>
                
         <div className="card-body">
-           {console.log(pet.photos[0])}
-            {pet.photos.map(photo => <img className="card-pic" src={photo.small} /> )}
+          
+            {pet.photos.map(photo => <img className="card-pic" src={photo.full} /> )}
             <h3 className="card-title">{pet.name}</h3>
             <h5 className="card-subtitle">{pet.type}</h5>
             <h5>Breed: {pet.breeds.primary}</h5>

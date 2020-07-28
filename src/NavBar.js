@@ -24,18 +24,18 @@ const NavBar = (props) => {
 							Type
 						</a>
 						<div class='dropdown-menu'>
-							<a class='dropdown-item' href='#'>
+							<a onClick={props.filterHandler} class='dropdown-item' name="dogs">
 								Dogs
 							</a>
-							<a class='dropdown-item' href='#'>
+							<a onClick={props.filterHandler} class='dropdown-item' name="cats">
 								Cats
 							</a>
-							<a class='dropdown-item' href='#'>
+							{/* <a onClick={props.filterHandler} class='dropdown-item' name="birds">
 								Birds
-							</a>
+							</a> */}
 							<div class='dropdown-divider'></div>
-							<a class='dropdown-item' href='#'>
-								All other Forever Friends
+							<a onClick={props.filterHandler} class='dropdown-item' name="all" >
+								All Forever Friends
 							</a>
 						</div>
 					</li>
