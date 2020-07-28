@@ -9,6 +9,7 @@ import PetPage from '../components/PetPage'
 import Home from '../components/Home'
 import Login from '../components/Login'
 import CreatePet from '../components/CreatePet'
+import NavBar from '../NavBar';
 
 
 class HomeContainer extends Component {
@@ -62,7 +63,7 @@ class HomeContainer extends Component {
   render() {
     return (
 	  <div>
-		<PetsContainer />
+        <PetsContainer />
 		<Router>
 			<Route exact path='/pets/:id' render={routerProps => (<PetPage pets={this.state.pets} {...routerProps}/>)} />
 			<Route exact path='/pets' render={routerProps => (<PetCard pets={this.state.pets} {...routerProps}/>)} />

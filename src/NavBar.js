@@ -7,15 +7,15 @@ const NavBar = (props) => {
   return (
 		<div>
 			<nav>
-				<ul className='nav justify-content-center'>
+				<ul className='nav'>
 					<li className='nav-item'>
-						<a className='nav-link active' href="/pets">
-							All Our Pets
+						<a className='logo' href="/pets">
+						PETS
 						</a>
 					</li>
 					<li className='nav-item dropdown'>
 						<a
-							className='nav-link dropdown-toggle'
+							className='otherNav dropdown-toggle'
 							data-toggle='dropdown'
 							href='#'
 							role='button'
@@ -40,13 +40,13 @@ const NavBar = (props) => {
 						</div>
 					</li>
 					<li className='nav-item'>
-						<a className='nav-link' href='/create'>
+						<a className='otherNav' href='/create'>
 							Found A Pet?
 						</a>
 					</li>
 					<li className='nav-item'>
 						<a
-							className='nav-link disabled'
+							className='otherNav'
 							href='/login'
 							tabindex='-1'
 							aria-disabled='true'>
