@@ -40,7 +40,7 @@ const NavBar = (props) => {
 						</div>
 					</li>
 					<li className='nav-item'>
-						<a className='otherNav' href='/create'>
+						<a className='otherNav' href='/lost'>
 							Found A Pet?
 						</a>
 					</li>
