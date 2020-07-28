@@ -38,19 +38,18 @@ class HomeContainer extends Component {
   
   
   getPets = () => {
-    fetch('https://api.petfinder.com/v2/animals', {
-				method: 'GET',
-				headers: {
-					Accept: 'application/json',
-					'Content-Type': 'application/json',
-					Authorization: 'Bearer ' + this.state.token.access_token
-				},
-			})
-				.then(resp => resp.json())
-				.then(data => {
-        	this.setState({ pets: data.animals });
-  
-});
+    fetch('https://api.petfinder.com/v2/animals?type=dog&page=2', {
+			method: 'GET',
+			headers: {
+				Accept: 'application/json',
+				'Content-Type': 'application/json',
+				Authorization: 'Bearer ' + this.state.token.access_token,
+			},
+		})
+			.then(resp => resp.json())
+			.then(data => {
+				this.setState({ pets: data.animals });
+			});
   }
   
 

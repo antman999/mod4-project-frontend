@@ -7,15 +7,15 @@ const NavBar = (props) => {
   return (
 		<div>
 			<nav>
-				<ul class='nav justify-content-center'>
-					<li class='nav-item'>
-						<a class='nav-link active' href="/pets">
+				<ul className='nav justify-content-center'>
+					<li className='nav-item'>
+						<a className='nav-link active' href="/pets">
 							All Our Pets
 						</a>
 					</li>
-					<li class='nav-item dropdown'>
+					<li className='nav-item dropdown'>
 						<a
-							class='nav-link dropdown-toggle'
+							className='nav-link dropdown-toggle'
 							data-toggle='dropdown'
 							href='#'
 							role='button'
@@ -23,30 +23,30 @@ const NavBar = (props) => {
 							aria-expanded='false'>
 							Type
 						</a>
-						<div class='dropdown-menu'>
-							<a class='dropdown-item' href='#'>
+						<div className='dropdown-menu'>
+							<a className='dropdown-item' href='#'>
 								Dogs
 							</a>
-							<a class='dropdown-item' href='#'>
+							<a className='dropdown-item' href='#'>
 								Cats
 							</a>
-							<a class='dropdown-item' href='#'>
+							<a className='dropdown-item' href='#'>
 								Birds
 							</a>
-							<div class='dropdown-divider'></div>
-							<a class='dropdown-item' href='#'>
+							<div className='dropdown-divider'></div>
+							<a className='dropdown-item' href='#'>
 								All other Forever Friends
 							</a>
 						</div>
 					</li>
-					<li class='nav-item'>
-						<a class='nav-link' href='/create'>
+					<li className='nav-item'>
+						<a className='nav-link' href='/create'>
 							Found A Pet?
 						</a>
 					</li>
-					<li class='nav-item'>
+					<li className='nav-item'>
 						<a
-							class='nav-link disabled'
+							className='nav-link disabled'
 							href='/login'
 							tabindex='-1'
 							aria-disabled='true'>

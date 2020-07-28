@@ -172,3 +172,81 @@ max-height: 210px;
 .login-form{
   text-align: center;
 }
+
+ .bi-x-circle-fill{
+  color: rgb(232, 54, 54);
+}
+
+.bi-check-circle-fill{
+  color: rgb(27, 218, 71)
+}
+
+.petBefore{
+  margin-top: 50px;
+  text-align: center;
+}
+
+.text{
+  border-bottom: 1px solid #cacaca;
+ 
+}
+
+.bi-heart{
+   color: rgb(232, 54, 54)
+}
+
+.col-4{
+
+
+padding: 20px;
+border-radius: .5em;
+display: grid;
+justify-content: center;
+margin: auto;
+/* width: 55%; */
+/* height: 40%; */
+margin-left: 56%;
+border-color: black;
+margin-right: 0%;
+border: 1px solid #dbdbdb;
+background-color: #ff4136c2;
+}
+
+.card-body{
+  border-top: 1px solid #cacaca;
+}
+
+.aboutC{
+text-align: center;
+ margin:0 auto;
+ padding: 18px;
+}
+
+.row{
+ 
+  margin-top: 45px;
+}
+
+.info{
+  border: 1px solid #dbdbdb;
+  padding: 20px;
+  border-radius: .5em;
+  display: grid;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  /* margin: 78px; */
+  /* padding: 20px; */
+  margin-right: 80px;
+  margin-left: 80px;
+  background-color: #fff;
+}
+.why{
+  color: #f66e6a;
+  text-align: center;
+  background-color: #f66e6a00;
+  margin-bottom: 30px;
+}
+
+.card{
+  align-items: center;
+}
