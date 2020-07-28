@@ -21,21 +21,21 @@ const NavBar = (props) => {
 							role='button'
 							aria-haspopup='true'
 							aria-expanded='false'>
-							Type
+							Filter by Type
 						</a>
-						<div className='dropdown-menu'>
-							<a className='dropdown-item' href='#'>
+						<div class='dropdown-menu'>
+							<a onClick={props.filterHandler} class='dropdown-item' name="dogs">
 								Dogs
 							</a>
-							<a className='dropdown-item' href='#'>
+							<a onClick={props.filterHandler} class='dropdown-item' name="cats">
 								Cats
 							</a>
-							<a className='dropdown-item' href='#'>
+							{/* <a onClick={props.filterHandler} class='dropdown-item' name="birds">
 								Birds
-							</a>
-							<div className='dropdown-divider'></div>
-							<a className='dropdown-item' href='#'>
-								All other Forever Friends
+							</a> */}
+							<div class='dropdown-divider'></div>
+							<a onClick={props.filterHandler} class='dropdown-item' name="all" >
+								All Forever Friends
 							</a>
 						</div>
 					</li>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Header from '../Header'
+import NavBar from '../NavBar'
 import PetsContainer from './PetsContainer';
 import PetCard from '../components/PetCard'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
@@ -15,7 +16,8 @@ class HomeContainer extends Component {
 
     state = {
       pets: [],
-      token:''
+	  token:'',
+	  filterBy: ''
 	  }
 	
 	  componentDidMount(){
@@ -38,7 +40,7 @@ class HomeContainer extends Component {
   
   
   getPets = () => {
-    fetch('https://api.petfinder.com/v2/animals?type=dog&page=2', {
+    fetch('https://api.petfinder.com/v2/animals', {
 			method: 'GET',
 			headers: {
 				Accept: 'application/json',
@@ -59,13 +61,35 @@ class HomeContainer extends Component {
 		})
 	}
 
+	filterHandler = (e) => {
+		this.setState({
+			filterBy: e.target.name
+		})
+	}
+
   render() {
-    return (
+	  let filteredPets = [...this.state.pets]
+      if(this.state.filterBy === 'dogs'){
+		  filteredPets = filteredPets.filter(pet => pet.type === 'Dog')
+	  }
+	  else if(this.state.filterBy === 'cats'){
+		filteredPets = filteredPets.filter(pet => pet.type === 'Cat')
+	 }
+	 else if(this.state.filterBy === 'birds'){
+		filteredPets = filteredPets.filter(pet => pet.type === 'Bird')
+	 }
+	 else if(this.state.filterBy === 'all'){
+		filteredPets = filteredPets
+	 }
+ 	return (
 	  <div>
+		<NavBar 
+		filterBy={this.state.filterBy}
+		filterHandler={this.filterHandler}/>
 		<PetsContainer />
 		<Router>
 			<Route exact path='/pets/:id' render={routerProps => (<PetPage pets={this.state.pets} {...routerProps}/>)} />
-			<Route exact path='/pets' render={routerProps => (<PetCard pets={this.state.pets} {...routerProps}/>)} />
+			<Route exact path='/pets' render={routerProps => (<PetCard pets={filteredPets} {...routerProps}/>)} />
 			<Route path='/about' component={About} />
 			<Route path='/contact'render={routerProps => <ContactForm {...routerProps} />} />
 			<Route exact path='/' component={Home} />
