@@ -10,6 +10,7 @@ import PetPage from '../components/PetPage'
 import Home from '../components/Home'
 import Login from '../components/Login'
 import LostPet from '../components/LostPet'
+import FavoritesContainer from './FavoritesContainer'
 
 
 
@@ -17,8 +18,10 @@ class HomeContainer extends Component {
 	state = {
 		pets: [],
 		token: '',
-    filterBy: '',
-    currentUser:null
+        filterBy: '',
+		currentUser:null,
+		likes: false,
+		favorites: []
 	};
 
 	componentDidMount() {
@@ -68,14 +71,39 @@ class HomeContainer extends Component {
 	};
 
   setUser = user => {
-    console.log(this.props)
+    // console.log(this.props)
 	this.setState({ currentUser: user }
 	// 	() => {
 	//   this.props.history.push('/pets');}	
 	  );
 	};
 // 
+
+    likeHandler = (id) => {
+		let likedPet = this.state.pets.find(pet => pet.id === id)
+		fetch('http://localhost:3001/api/v1/favorites', {
+			method: 'POST',
+			headers: {
+				Accept: 'application/json',
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({ 
+				user_id: this.state.currentUser.id,	
+			    pet_id: likedPet.id})
+		})
+			.then(resp => resp.json())
+			.then(data => {
+			console.log(data)
+	
+	  
+	}) 
+	this.setState({ 
+		likes: !this.state.likes,
+})
+  } 
+
 	render() {
+		console.log(this.state)
 		let filteredPets = [...this.state.pets];
 		if (this.state.filterBy === 'dogs') {
 			filteredPets = filteredPets.filter(pet => pet.type === 'Dog');
@@ -86,7 +114,7 @@ class HomeContainer extends Component {
 		} else if (this.state.filterBy === 'all') {
 			filteredPets = filteredPets;
     }
-    console.log(this.state.currentUser)
+    // console.log(this.state.currentUser)
 		return (
 			<div>
 				<NavBar
@@ -99,7 +127,7 @@ class HomeContainer extends Component {
 						exact
 						path='/pets/:id'
 						render={routerProps => (
-							<PetPage pets={this.state.pets} {...routerProps} />
+							<PetPage pets={this.state.pets} {...routerProps} likes={this.state.likes} likeHandler={this.likeHandler}/>
 						)}
 					/>
 					<Route
@@ -124,6 +152,12 @@ class HomeContainer extends Component {
 						path='/lost'
 						render={routerProps => (
 							<LostPet {...routerProps} addPet={this.addPet} />
+						)}
+					/>
+					<Route
+						exact path='/favorites'
+						render={routerProps => (
+							<FavoritesContainer {...routerProps} pets={this.state.favorites} />
 						)}
 					/>
 				</Router>
