@@ -1,9 +1,10 @@
 import React from 'react'
 
-const FavoritesContainer = () => {
+const FavoritesContainer = (props) => {
     return (
         <div>
-
+           <h1>Favorites!</h1>
+          
         </div>
     )
 }

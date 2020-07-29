@@ -15,7 +15,7 @@ const PetPage = props => {
 	let petId = props.match.params.id;
 
   let displayPet = props.pets.find(pet => pet.id === parseInt(petId));
-  console.log(displayPet)
+//   console.log(displayPet)
   
   let no = <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z"/>
@@ -27,11 +27,19 @@ const PetPage = props => {
   let heart = <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-heart" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
   </svg>
+
+	let heartFull = <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-heart-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+	<path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+	</svg>
+
+
+
+
   
 
 	return (
     <>
-      <NavBar />
+      
 			{displayPet ? (
 				<div>
 					<Container fluid='md'>
@@ -42,7 +50,7 @@ const PetPage = props => {
 										<Carousel.Item>
 											<img
 												className='d-block w-40'
-												src={photo.large}
+												src={photo.full}
 												alt='First slide'
 											/>
 											<Carousel.Caption>
@@ -65,7 +73,10 @@ const PetPage = props => {
 									{displayPet.contact.address.state}{' '}
 									{displayPet.contact.address.postcode}
 								</h6>
-								<h2 className='about'>About our furry friend {heart} </h2>
+								<h2 className='about'>About our furry friend
+								  <span id={displayPet.id} className='heart' onClick={() => props.likeHandler(displayPet.id)}> {props.likes ? heartFull : heart} </span>
+								</h2>
+								
 								<p className='text'>{displayPet.description}</p>
 
 								<h6 className='petBefore'>
