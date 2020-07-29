@@ -17,8 +17,10 @@ class HomeContainer extends Component {
 	state = {
 		pets: [],
 		token: '',
-    filterBy: '',
-    currentUser:null
+        filterBy: '',
+		currentUser:null,
+		likes: false
+	
 	};
 
 	componentDidMount() {
@@ -75,6 +77,11 @@ class HomeContainer extends Component {
 	  );
 	};
 // 
+
+    likeHandler = () => {
+      this.setState({ likes: !this.state.likes })
+	}
+
 	render() {
 		let filteredPets = [...this.state.pets];
 		if (this.state.filterBy === 'dogs') {
@@ -99,7 +106,7 @@ class HomeContainer extends Component {
 						exact
 						path='/pets/:id'
 						render={routerProps => (
-							<PetPage pets={this.state.pets} {...routerProps} />
+							<PetPage pets={this.state.pets} {...routerProps} likes={this.state.likes} likeHandler={this.likeHandler}/>
 						)}
 					/>
 					<Route
