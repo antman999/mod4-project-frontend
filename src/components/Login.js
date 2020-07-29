@@ -12,10 +12,8 @@ class Login extends React.Component {
 		country: '',
 		city: '',
 		zip: null,
-        bio: ''
-    };
-    
-   
+		bio: '',
+	};
 
 	// handleNewUser = () => {
 	// 	this.setState(prevState => ({
@@ -33,8 +31,8 @@ class Login extends React.Component {
 	// 	}));
 	// };
 
-    handleChange = e => {
-        console.log(e.target.value)
+	handleChange = e => {
+		console.log(e.target.value);
 		this.setState({ [e.target.name]: e.target.value });
 	};
 
@@ -63,11 +61,10 @@ class Login extends React.Component {
 				.then(response => {
 					if (response.errors) {
 						alert(response.errors);
-                    } else {
-                     
-							// // send them somewhere
-							// // storing the user object SOMEWHERE
-							this.props.setUser(response);
+					} else {
+						// // send them somewhere
+						// // storing the user object SOMEWHERE
+						this.props.setUser(response);
 					}
 				});
 		} else {
@@ -86,22 +83,25 @@ class Login extends React.Component {
 						onChange={this.handleChange}
 						type='text'
 						placeholder='Email'
-					/>
-				
+                    />
+                    <br></br>
+
 					<input
 						name='firstName'
 						value={this.state.firstName}
 						onChange={this.handleChange}
 						type='text'
 						placeholder='first name...'
-					/>
+                    />
+                    <br></br>
 					<input
 						name='lastName'
 						value={this.state.lastName}
 						onChange={this.handleChange}
 						type='text'
 						placeholder='last name...'
-					/>
+                    />
+                    <br></br>
 
 					<input
 						name='country'
@@ -121,7 +121,7 @@ class Login extends React.Component {
 						name='password'
 						value={this.state.password}
 						onChange={this.handleChange}
-						type='text'
+						type='password'
 						placeholder='password'
 					/>
 
@@ -129,12 +129,12 @@ class Login extends React.Component {
 						name='passwordC'
 						value={this.state.passwordC}
 						onChange={this.handleChange}
-						type='text'
+						type='password'
 						placeholder=' confirm password'
 					/>
-				
+
 					<button type='submit' class='btn btn-primary'>
-						Login
+						Sign Up
 					</button>
 				</form>
 			</div>

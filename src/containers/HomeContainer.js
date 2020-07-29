@@ -121,9 +121,9 @@ class HomeContainer extends Component {
 					/>
 					<Route
 						exact
-						path='/create'
+						path='/lost'
 						render={routerProps => (
-							<CreatePet {...routerProps} addPet={this.addPet} />
+							<LostPet {...routerProps} addPet={this.addPet} />
 						)}
 					/>
 				</Router>
