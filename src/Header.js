@@ -9,7 +9,7 @@ const Header = () => {
   return (
 		<div>
 			<header class='masthead'>
-				<NavBar />
+				
 				<div class='container h-100'>
 					<div class='row h-100 align-items-center'>
 						<div class='col-12 text-center'>

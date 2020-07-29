@@ -39,7 +39,7 @@ const PetPage = props => {
 
 	return (
     <>
-      <NavBar />
+      
 			{displayPet ? (
 				<div>
 					<Container fluid='md'>
