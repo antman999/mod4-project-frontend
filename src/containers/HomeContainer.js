@@ -69,9 +69,10 @@ class HomeContainer extends Component {
 
   setUser = user => {
     console.log(this.props)
-    this.setState({ currentUser: user }, () => {
-      this.props.history.push('/pets');
-    }	);
+	this.setState({ currentUser: user }
+	// 	() => {
+	//   this.props.history.push('/pets');}	
+	  );
 	};
 // 
 	render() {
@@ -115,9 +116,8 @@ class HomeContainer extends Component {
 					/>
 					<Route exact path='/' component={Home} />
 					<Route
-						exact
-						path='/login'
-						render={routerProps =>( <Login setUser={this.setUser} />)}
+						exact path='/login'
+						render={routerProps =>( <Login setUser={this.setUser} {...routerProps} />)}
 					/>
 					<Route
 						exact

@@ -61,10 +61,12 @@ class Login extends React.Component {
 				.then(response => {
 					if (response.errors) {
 						alert(response.errors);
-					} else {
-						// // send them somewhere
-						// // storing the user object SOMEWHERE
-						this.props.setUser(response);
+                    } else {
+                     
+							// // send them somewhere
+							// // storing the user object SOMEWHERE
+							this.props.setUser(response);
+							this.props.history.push('/pets')
 					}
 				});
 		} else {
@@ -73,6 +75,7 @@ class Login extends React.Component {
 	};
 
 	render() {
+		console.log(this.props)
 		return (
 			<div>
 				<h3 className='login-header'>Login!</h3>
