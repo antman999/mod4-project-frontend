@@ -64,9 +64,11 @@ class Login extends React.Component {
                     } else {
                      
 							// // send them somewhere
-							// // storing the user object SOMEWHERE
+                            // // storing the user object SOMEWHERE
+                       
 							this.props.setUser(response);
-							this.props.history.push('/pets')
+                        this.props.history.push('/pets')
+                        
 					}
 				});
 		} else {

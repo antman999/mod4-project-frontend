@@ -50,7 +50,7 @@ const NavBar = (props) => {
 							href='/login'
 							tabindex='-1'
 							aria-disabled='true'>
-							Sign Up / Login
+							{props.user? props.user.first_name :"Sign Up / Login"}
 						</a>
 					</li>
 				</ul>

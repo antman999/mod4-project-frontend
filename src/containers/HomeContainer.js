@@ -37,9 +37,21 @@ class HomeContainer extends Component {
 			.then(res => res.json())
 			.then(token => {
 				this.setState({ token: token }, () => this.getPets());
-			});
-	}
-
+      });
+    const user_id = localStorage.user_id;
+		if (user_id) {
+			fetch('http://localhost:3001/api/v1/autologin', {
+				headers: {
+					Authorization: user_id,
+				},
+			})
+				.then(resp => resp.json())
+				.then(resp => this.setState({ currentUser: resp }));
+		} else {
+		}
+  }
+  
+ 
 	getPets = () => {
 		fetch('https://api.petfinder.com/v2/animals', {
 			method: 'GET',
@@ -69,7 +81,9 @@ class HomeContainer extends Component {
 
   setUser = user => {
     console.log(this.props)
-	this.setState({ currentUser: user }
+    this.setState({ currentUser: user }, () => {
+      localStorage.user_id = user.id
+    }
 	// 	() => {
 	//   this.props.history.push('/pets');}	
 	  );
@@ -91,7 +105,8 @@ class HomeContainer extends Component {
 			<div>
 				<NavBar
 					filterBy={this.state.filterBy}
-					filterHandler={this.filterHandler}
+          filterHandler={this.filterHandler}
+          user={this.state.currentUser}
 				/>
 				<PetsContainer />
 				<Router>
