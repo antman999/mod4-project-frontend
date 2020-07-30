@@ -11,6 +11,7 @@ import Home from '../components/Home'
 import Login from '../components/Login'
 import LostPet from '../components/LostPet'
 import FavoritesContainer from './FavoritesContainer'
+import UserProfile from '../components/UserProfile'
 
 
 
@@ -109,17 +110,26 @@ class HomeContainer extends Component {
 		})
 			.then(resp => resp.json())
 			.then(data => {
-				console.log(data);
-			});
-		this.setState({
-			likes: !this.state.likes,
-		});
-	};
+			let foundPet = this.state.pets.find(pet => pet.id === data.pet_id)
+			this.setState({favorites: foundPet})
+	
+	  
+	}) 
+	this.setState({ 
+		likes: !this.state.likes,
+})
+  } 
 
-	addDefaultSrc = ev => {
-		ev.target.src =
-			'https://www.isedio.com/wp-content/uploads/2019/04/coming-soon-image.png';
-	};
+  deleteFave = (id) => {
+	  console.log('hi')
+	fetch(`http://localhost:3001/api/v1/favorites/${id}`, {
+		method: "DELETE",
+		headers:{
+			'content-type': 'application/json'
+		}
+	})
+
+  }
 
 	render() {
 
@@ -182,14 +192,19 @@ class HomeContainer extends Component {
 							<LostPet {...routerProps} addPet={this.addPet} />
 						)}
 					/>
-					<Route
-						exact
-						path='/favorites'
+					{/* <Route
+						exact path='/favorites'
 						render={routerProps => (
 							<FavoritesContainer
 								{...routerProps}
 								pets={this.state.favorites}
 							/>
+						)}
+					/> */}
+					<Route
+						exact path='/profile_page'
+						render={routerProps => (
+							<UserProfile {...routerProps}  user={this.state.currentUser} pets={this.state.pets} deleteFave={this.deleteFave} />
 						)}
 					/>
 				</Router>

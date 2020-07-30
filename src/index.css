@@ -398,5 +398,33 @@ border: 1px solid #dbdbdb
     max-width: 32.333333%;
     border-color: black;
     margin-right: -38%;
-    border: 1px solid #dbdbdb;
+    border: 1px solid #dbdbdb;}
+.favorites-container{
+  text-align: right;
+  margin-right: 15em;
+  margin-top: 5em;
+}
+
+.profile-header{
+  margin-top: 1em;
+  text-align: center;
+}
+
+.profile-image{
+  width: 20em;
+  margin-left: 7em;
+  margin-top: -7em;
+}
+
+.favorites-header{
+  margin-top: 0em;
+}
+
+.fave{
+  margin-right: 1.5em ;
+}
+
+.personal-info{
+  margin-top: 3em;
+  margin-left: 7em;
 }
