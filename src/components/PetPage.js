@@ -8,44 +8,90 @@ import Card from 'react-bootstrap/Card';
 import CardDeck from 'react-bootstrap/CardDeck';
 import Button from 'react-bootstrap/Button';
 import NavBar from '../NavBar';
-
-
-
+import {
+	withGoogleMap,
+	GoogleMap,
+	withScriptjs,
+	InfoWindow,
+	Marker,
+} from 'react-google-maps';
+import Geocode from 'react-geocode';
+Geocode.setApiKey('AIzaSyA_KItI6WFDOYLBKjKDWhn6Z7WKusttxGo');
+Geocode.enableDebug();
 const PetPage = props => {
+
+
 	let petId = props.match.params.id;
 
-  let displayPet = props.pets.find(pet => pet.id === parseInt(petId));
-//   console.log(displayPet)
-  
-  let no = <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-  <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z"/>
-  </svg>
-  let yes = <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-check-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-    <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
-    
-  </svg>
-  let heart = <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-heart" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-  <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-  </svg>
+	let displayPet = props.pets.find(pet => pet.id === parseInt(petId));
+	//   console.log(displayPet)
 
-	let heartFull = <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-heart-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-	<path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
-	</svg>
+	let no = (
+		<svg
+			width='1em'
+			height='1em'
+			viewBox='0 0 16 16'
+			class='bi bi-x-circle-fill'
+			fill='currentColor'
+			xmlns='http://www.w3.org/2000/svg'>
+			<path
+				fill-rule='evenodd'
+				d='M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.146-3.146a.5.5 0 0 0-.708-.708L8 7.293 4.854 4.146a.5.5 0 1 0-.708.708L7.293 8l-3.147 3.146a.5.5 0 0 0 .708.708L8 8.707l3.146 3.147a.5.5 0 0 0 .708-.708L8.707 8l3.147-3.146z'
+			/>
+		</svg>
+	);
+	let yes = (
+		<svg
+			width='1em'
+			height='1em'
+			viewBox='0 0 16 16'
+			class='bi bi-check-circle-fill'
+			fill='currentColor'
+			xmlns='http://www.w3.org/2000/svg'>
+			<path
+				fill-rule='evenodd'
+				d='M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z'
+			/>
+		</svg>
+	);
+	let heart = (
+		<svg
+			width='1em'
+			height='1em'
+			viewBox='0 0 16 16'
+			class='bi bi-heart'
+			fill='currentColor'
+			xmlns='http://www.w3.org/2000/svg'>
+			<path
+				fill-rule='evenodd'
+				d='M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z'
+			/>
+		</svg>
+	);
 
-
-
-
-  
+	let heartFull = (
+		<svg
+			width='1em'
+			height='1em'
+			viewBox='0 0 16 16'
+			class='bi bi-heart-fill'
+			fill='currentColor'
+			xmlns='http://www.w3.org/2000/svg'>
+			<path
+				fill-rule='evenodd'
+				d='M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z'
+			/>
+		</svg>
+	);
 
 	return (
-    <>
-      
+		<>
 			{displayPet ? (
 				<div>
 					<Container fluid='md'>
 						<Row>
 							<Col>
-								<Carousel>
+								<Carousel className='cp'>
 									{displayPet.photos.map(photo => (
 										<Carousel.Item>
 											<img
@@ -73,10 +119,17 @@ const PetPage = props => {
 									{displayPet.contact.address.state}{' '}
 									{displayPet.contact.address.postcode}
 								</h6>
-								<h2 className='about'>About our furry friend
-								  <span id={displayPet.id} className='heart' onClick={() => props.likeHandler(displayPet.id)}> {props.likes ? heartFull : heart} </span>
+								<h2 className='about'>
+									About our furry friend
+									<span
+										id={displayPet.id}
+										className='heart'
+										onClick={() => props.likeHandler(displayPet.id)}>
+										{' '}
+										{props.likes ? heartFull : heart}{' '}
+									</span>
 								</h2>
-								
+
 								<p className='text'>{displayPet.description}</p>
 
 								<h6 className='petBefore'>
@@ -131,6 +184,10 @@ const PetPage = props => {
 										<Card.Title>Contact Us</Card.Title>
 										<Card.Text>Email: {displayPet.contact.email}</Card.Text>
 										<Card.Text>Phone: {displayPet.contact.phone}</Card.Text>
+									
+
+										
+                   
 										<Button href={displayPet.url} variant='primary'>
 											Start Adoption
 										</Button>
@@ -139,13 +196,13 @@ const PetPage = props => {
 							</Col>
 						</Row>
 					</Container>
-					
+
 					<Container fluid='md'>
 						<Row>
 							<Col className='info'>
-								<div><h2 className='why'>Why Adopt?</h2>
-                  <CardDeck>
-                    
+								<div>
+									<h2 className='why'>Why Adopt?</h2>
+									<CardDeck>
 										<Card>
 											<Card.Img
 												variant='top'
@@ -154,7 +211,7 @@ const PetPage = props => {
 											<Card.Body>
 												<Card.Title>Saving A Life</Card.Title>
 												<Card.Text>
-													Each year in the United States alone, 2.7 million
+													Each year in the United States alone, 1.5 million
 													adoptable dogs and cats are euthanized because too few
 													people adopt from shelters. Because space within
 													shelters is limited, staff members too frequently are

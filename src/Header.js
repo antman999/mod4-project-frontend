@@ -18,13 +18,13 @@ const Header = () => {
 						</div>
 					</div>
 				</div>
-			</header>
+			</header> 
 			<Jumbotron fluid>
 				<Container>
 					<h1>Adopting A Best Friend Saves Lives</h1>
 					<p>
 						Each year, approximately 1.5 million shelter animals are euthanized
-						(670,000 dogs and 860,000 cats)
+						(670,000 dogs and 860,000 cats).
 					</p>
 				</Container>
 			</Jumbotron>

@@ -18,10 +18,10 @@ class HomeContainer extends Component {
 	state = {
 		pets: [],
 		token: '',
-        filterBy: '',
-		currentUser:null,
+		filterBy: '',
+		currentUser: null,
 		likes: false,
-		favorites: []
+		favorites: [],
 	};
 
 	componentDidMount() {
@@ -40,8 +40,8 @@ class HomeContainer extends Component {
 			.then(res => res.json())
 			.then(token => {
 				this.setState({ token: token }, () => this.getPets());
-      });
-    const user_id = localStorage.user_id;
+			});
+		const user_id = localStorage.user_id;
 		if (user_id) {
 			fetch('http://localhost:3001/api/v1/autologin', {
 				headers: {
@@ -52,9 +52,8 @@ class HomeContainer extends Component {
 				.then(resp => this.setState({ currentUser: resp }));
 		} else {
 		}
-  }
-  
- 
+	}
+
 	getPets = () => {
 		fetch('https://api.petfinder.com/v2/animals', {
 			method: 'GET',
@@ -70,11 +69,11 @@ class HomeContainer extends Component {
 			});
 	};
 
-		// addPet = (pet) => {
-		// 	this.setState({
-		// 		pets: [...this.state.pets, pet ]
-		// 	})
-		// }
+	// addPet = (pet) => {
+	// 	this.setState({
+	// 		pets: [...this.state.pets, pet ]
+	// 	})
+	// }
 
 	filterHandler = e => {
 		this.setState({
@@ -82,43 +81,49 @@ class HomeContainer extends Component {
 		});
 	};
 
-  setUser = user => {
-    console.log(this.props)
-    this.setState({ currentUser: user }, () => {
-      localStorage.user_id = user.id
-    }
-	// 	() => {
-	//   this.props.history.push('/pets');}	
-	  );
+	setUser = user => {
+		console.log(this.props);
+		this.setState(
+			{ currentUser: user },
+			() => {
+				localStorage.user_id = user.id;
+			}
+			// 	() => {
+			//   this.props.history.push('/pets');}
+		);
 	};
-// 
+	//
 
-    likeHandler = (id) => {
-		let likedPet = this.state.pets.find(pet => pet.id === id)
+	likeHandler = id => {
+		let likedPet = this.state.pets.find(pet => pet.id === id);
 		fetch('http://localhost:3001/api/v1/favorites', {
 			method: 'POST',
 			headers: {
 				Accept: 'application/json',
 				'Content-Type': 'application/json',
 			},
-			body: JSON.stringify({ 
-				user_id: this.state.currentUser.id,	
-			    pet_id: likedPet.id})
+			body: JSON.stringify({
+				user_id: this.state.currentUser.id,
+				pet_id: likedPet.id,
+			}),
 		})
 			.then(resp => resp.json())
 			.then(data => {
-			console.log(data)
-	
-	  
-	}) 
-	this.setState({ 
-		likes: !this.state.likes,
-})
-  } 
+				console.log(data);
+			});
+		this.setState({
+			likes: !this.state.likes,
+		});
+	};
+
+	addDefaultSrc = ev => {
+		ev.target.src =
+			'https://www.isedio.com/wp-content/uploads/2019/04/coming-soon-image.png';
+	};
 
 	render() {
-		console.log(this.state)
-		let filteredPets = [...this.state.pets];
+
+		let filteredPets = [...this.state.pets.filter(pets => pets.photos.length>=1)];
 		if (this.state.filterBy === 'dogs') {
 			filteredPets = filteredPets.filter(pet => pet.type === 'Dog');
 		} else if (this.state.filterBy === 'cats') {
@@ -127,14 +132,14 @@ class HomeContainer extends Component {
 			filteredPets = filteredPets.filter(pet => pet.type === 'Bird');
 		} else if (this.state.filterBy === 'all') {
 			filteredPets = filteredPets;
-    }
-    // console.log(this.state.currentUser)
+		}
+
 		return (
 			<div>
 				<NavBar
 					filterBy={this.state.filterBy}
-          filterHandler={this.filterHandler}
-          user={this.state.currentUser}
+					filterHandler={this.filterHandler}
+					user={this.state.currentUser}
 				/>
 				<PetsContainer />
 				<Router>
@@ -142,14 +147,19 @@ class HomeContainer extends Component {
 						exact
 						path='/pets/:id'
 						render={routerProps => (
-							<PetPage pets={this.state.pets} {...routerProps} likes={this.state.likes} likeHandler={this.likeHandler}/>
+							<PetPage
+								pets={this.state.pets}
+								{...routerProps}
+								likes={this.state.likes}
+								likeHandler={this.likeHandler}
+							/>
 						)}
 					/>
 					<Route
 						exact
 						path='/pets'
 						render={routerProps => (
-							<PetCard pets={filteredPets} {...routerProps} />
+							<PetCard  pets={filteredPets} {...routerProps} />
 						)}
 					/>
 					<Route path='/about' component={About} />
@@ -159,8 +169,11 @@ class HomeContainer extends Component {
 					/>
 					<Route exact path='/' component={Home} />
 					<Route
-						exact path='/login'
-						render={routerProps =>( <Login setUser={this.setUser} {...routerProps} />)}
+						exact
+						path='/login'
+						render={routerProps => (
+							<Login setUser={this.setUser} {...routerProps} />
+						)}
 					/>
 					<Route
 						exact
@@ -170,9 +183,13 @@ class HomeContainer extends Component {
 						)}
 					/>
 					<Route
-						exact path='/favorites'
+						exact
+						path='/favorites'
 						render={routerProps => (
-							<FavoritesContainer {...routerProps} pets={this.state.favorites} />
+							<FavoritesContainer
+								{...routerProps}
+								pets={this.state.favorites}
+							/>
 						)}
 					/>
 				</Router>

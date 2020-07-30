@@ -86,30 +86,7 @@ code {
     max-height: 366px;
 }
 
-.carousel,.slide{
-  margin: 50px;
-  padding: 20px;
-  border-radius: .5em;
-  /* color: black; */
-  background-color: #fff;
-     border-bottom-right-radius: 25px !important;
-     border-top-right-radius: 25px !important;
-       border-bottom-left-radius: 25px !important;
-       border-top-left-radius: 25px !important;
-border: 1px solid #dbdbdb
-}
 
-.carousel-control-next{
-   background-color:#10101047;
-   border-bottom-right-radius: 25px !important;
-   border-top-right-radius: 25px !important;
-}
-
-.carousel-control-prev {
-  background-color: #10101047;
-  border-bottom-left-radius: 25px !important;
-  border-top-left-radius: 25px !important;
-}
   
 .col-6{
 background-color: #fff;
@@ -320,4 +297,106 @@ margin-bottom: 3em;
     text-align: center;
     margin-top: 5em;
 
+}
+
+
+
+.carousel-control-next {
+  background-color: #10101047;
+
+}
+
+.carousel-control-prev {
+  background-color: #10101047;
+ 
+}
+
+.cp{
+
+  padding: 20px;
+  border-radius: .5em;
+  /* color: black; */
+  background-color: #fff;
+ 
+  border: 1px solid #dbdbdb
+}
+
+.allPups{
+      background-color: #fff;
+      /* margin: 50px; */
+      padding: 20px;
+      border-radius: .5em;
+      display: grid;
+      justify-content: center;
+      /* margin: auto; */
+      width: 70%;
+      /* height: 40%; */
+      /* margin-left: 6%; */
+      border-color: black;
+      /* margin-right: -50%; */
+      border: 1px solid #dbdbdb;
+      /* align-content: end; */
+      margin-left: 345px;
+      margin-top: 110px;
+}
+.col-10{
+  background-color: #fff;
+/* margin: 50px; */
+padding: 20px;
+border-radius: .5em;
+display: grid;
+justify-content: center;
+margin: auto;
+/* width: 55%; */
+/* height: 40%; */
+margin-left: 37%;
+max-width: 60.333333%;
+border-color: black;
+margin-right: -50%;
+border: 1px solid #dbdbdb
+}
+
+.d{
+      width: 55%;
+      height: 40%;
+      max-width: 371px;
+      min-height: 156px;
+      max-height: 156px;
+      justify-content: center;
+      margin: auto;
+}
+
+.petHome{
+   color:rgb(52, 51, 49);
+   text-transform: uppercase;
+   letter-spacing: 5px;
+   font-size: 25px;
+   text-align: center;
+   margin-bottom: 40px;
+}
+
+.card-title{
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 25px;
+    text-align: center;
+}
+
+.col-7{
+
+    left: -45%;
+    background-color: #fff;
+    /* margin: 50px; */
+    padding: 20px;
+    border-radius: .5em;
+    display: grid;
+    justify-content: center;
+    /* margin: auto; */
+    /* width: 55%; */
+    /* height: 40%; */
+    /* margin-left: 37%; */
+    max-width: 32.333333%;
+    border-color: black;
+    margin-right: -38%;
+    border: 1px solid #dbdbdb;
 }
