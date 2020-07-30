@@ -80,65 +80,70 @@ class Login extends React.Component {
 		console.log(this.props)
 		return (
 			<div>
-				<h3 className='login-header'>Login!</h3>
-				<form onSubmit={this.handleSubmit}>
-					<input
-						name='email'
-						value={this.state.email}
-						onChange={this.handleChange}
-						type='text'
-						placeholder='Email'
-                    />
-                    <br></br>
+				<form onSubmit={this.handleSubmit} className="signup">
+					<h3>Sign Up</h3>
 
-					<input
-						name='firstName'
-						value={this.state.firstName}
-						onChange={this.handleChange}
-						type='text'
-						placeholder='first name...'
-                    />
-                    <br></br>
-					<input
-						name='lastName'
-						value={this.state.lastName}
-						onChange={this.handleChange}
-						type='text'
-						placeholder='last name...'
-                    />
-                    <br></br>
+					<div className='form-group'>
+						<label>First name</label>
+						<input
+							className='form-control'
+							placeholder='First name'
+							name='firstName'
+							value={this.state.firstName}
+							onChange={this.handleChange}
+							type='text'
+						/>
+					</div>
 
-					<input
-						name='country'
-						value={this.state.country}
-						onChange={this.handleChange}
-						type='text'
-						placeholder='Country'
-					/>
-					<input
-						name='city'
-						value={this.state.city}
-						onChange={this.handleChange}
-						type='text'
-						placeholder='city'
-					/>
-					<input
-						name='password'
-						value={this.state.password}
-						onChange={this.handleChange}
-						type='password'
-						placeholder='password'
-					/>
+					<div className='form-group'>
+						<label>Last name</label>
+						<input
+							type='text'
+							className='form-control'
+							placeholder='Last name'
+							name='lastName'
+							value={this.state.lastName}
+							onChange={this.handleChange}
+						/>
+					</div>
 
-					<input
-						name='passwordC'
-						value={this.state.passwordC}
-						onChange={this.handleChange}
-						type='password'
-						placeholder=' confirm password'
-					/>
+					<div className='form-group'>
+						<label>Email address</label>
+						<input
+							name='email'
+							value={this.state.email}
+							onChange={this.handleChange}
+							type='email'
+							className='form-control'
+							placeholder='Enter email'
+						/>
+					</div>
 
-					<button type='submit' class='btn btn-primary'>
+					<div className='form-group'>
+						<label>Password</label>
+						<input
+							name='password'
+							value={this.state.password}
+							onChange={this.handleChange}
+							type='password'
+							className='form-control'
+							placeholder='Enter password'
+						/>
+					</div>
+
+					<div className='form-group'>
+						<label>Password Confirmation</label>
+						<input
+							name='passwordC'
+							value={this.state.passwordC}
+							onChange={this.handleChange}
+							type='password'
+							className='form-control'
+							placeholder='Confirm password'
+						/>
+					</div>
+
+					<button type='submit' className='btn btn-primary btn-block'>
 						Sign Up
 					</button>
 				</form>
