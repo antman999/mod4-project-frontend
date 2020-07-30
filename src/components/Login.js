@@ -50,7 +50,7 @@ class Login extends React.Component {
 					email: this.state.email,
 					password_digest: this.state.password,
 					first_name: this.state.firstName,
-					last_name: this.state.last_name,
+					last_name: this.state.lastName,
 					pet_preference: this.state.petPreference,
 					country: this.state.country,
 					city: this.state.city,
@@ -67,7 +67,7 @@ class Login extends React.Component {
                             // // storing the user object SOMEWHERE
                        
 							this.props.setUser(response);
-                        this.props.history.push('/pets')
+                        this.props.history.push('/profile_page')
                         
 					}
 				});

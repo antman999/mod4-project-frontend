@@ -11,6 +11,7 @@ import Home from '../components/Home'
 import Login from '../components/Login'
 import LostPet from '../components/LostPet'
 import FavoritesContainer from './FavoritesContainer'
+import UserProfile from '../components/UserProfile'
 
 
 
@@ -107,7 +108,8 @@ class HomeContainer extends Component {
 		})
 			.then(resp => resp.json())
 			.then(data => {
-			console.log(data)
+			let foundPet = this.state.pets.find(pet => pet.id === data.pet_id)
+			this.setState({favorites: foundPet})
 	
 	  
 	}) 
@@ -169,10 +171,16 @@ class HomeContainer extends Component {
 							<LostPet {...routerProps} addPet={this.addPet} />
 						)}
 					/>
-					<Route
+					{/* <Route
 						exact path='/favorites'
 						render={routerProps => (
 							<FavoritesContainer {...routerProps} pets={this.state.favorites} />
+						)}
+					/> */}
+					<Route
+						exact path='/profile_page'
+						render={routerProps => (
+							<UserProfile {...routerProps}  user={this.state.currentUser} pets={this.state.pets} />
 						)}
 					/>
 				</Router>
