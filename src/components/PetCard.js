@@ -62,7 +62,7 @@ const PetCard = props => {
 
                 <Col xs={7}>
                     {/* <a href='/lost'> */}
-                    <h4 className='petHome'>Lost Buddies </h4>
+                    <h4 className='petHome'>Thanks to our Partners</h4>
 					
 					{/* </a> */}
 

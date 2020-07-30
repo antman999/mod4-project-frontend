@@ -479,3 +479,29 @@ border: 1px solid #dbdbdb
 .lost-page{
   text-align: center;
 }
+
+.lost-card-body{
+  margin-top: 0em;
+  /* border-top: 1px solid #cacaca; */
+  width: 17em;
+  height: 40vw;
+  margin-bottom: 0em;
+  margin-left: 1em;
+  margin-right: 1em;
+  background-color: white;
+  text-align: center;
+  flex-shrink: 3;
+  border: solid;
+  border-color: lightgray;
+  border-width: 0.05em;
+  
+}
+
+.lost-card-pic{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 55%;
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
+}
