@@ -91,12 +91,12 @@ class LostPet extends React.Component {
                 <div className="card">
                 {this.state.lostPets.map(lostPet => 
                 
-                <div className="card-body">
+                <div className="lost-card-body">
                     <>
-                    <img className="card-pic" src={lostPet.img_url} /> 
-                    <h3 className="card-title">Case Number: {lostPet.id}</h3>
-                    <h3 className="card-title">Location Found: {lostPet.location}</h3>
-                    <h5 className="card-subtitle">Found Pet Type: {lostPet.pet_type}</h5>
+                    <img className="lost-card-pic" src={lostPet.img_url} /> 
+                    <h3 className="lost-title">Case Number: {lostPet.id}</h3>
+                    <h3 className="lost-title">Location Found: {lostPet.location}</h3>
+                    <h5 className="lost-subtitle">Found Pet Type: {lostPet.pet_type}</h5>
                     <button onClick={this.moreInfo} 
                     id={lostPet.id} class='btn btn-outline-primary'>Have More Info?</button>
                     </>
