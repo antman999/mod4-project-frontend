@@ -479,3 +479,22 @@ border: 1px solid #dbdbdb
 .lost-page{
   text-align: center;
 }
+
+.lostpic{
+  max-height: 186px;
+}
+
+.cards{
+  
+    /* width: 17em !important;
+    height: 0vw !important;
+    margin-bottom: 0em !important;
+    margin-left: 0em !important; 
+    margin-right: 0em !important;
+    /* background-color: white; */
+    text-align: center;
+    flex-shrink: 3; 
+        width: 17rem;
+        margin: 34px;
+
+}
