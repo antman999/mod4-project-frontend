@@ -16,7 +16,7 @@ import {
 	Marker,
 } from 'react-google-maps';
 import Geocode from 'react-geocode';
-Geocode.setApiKey('AIzaSyA_KItI6WFDOYLBKjKDWhn6Z7WKusttxGo');
+
 Geocode.enableDebug();
 const PetPage = props => {
 
