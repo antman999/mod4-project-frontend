@@ -1,16 +1,12 @@
 import React, { Component } from 'react'
-import Header from '../Header'
 import NavBar from '../NavBar'
-import PetsContainer from './PetsContainer';
 import PetCard from '../components/PetCard'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
-import About from '../components/About'
 import ContactForm from '../components/ContactForm'
 import PetPage from '../components/PetPage'
 import Home from '../components/Home'
 import Login from '../components/Login'
 import LostPet from '../components/LostPet'
-import FavoritesContainer from './FavoritesContainer'
 import UserProfile from '../components/UserProfile'
 
 
@@ -70,12 +66,6 @@ class HomeContainer extends Component {
 			});
 	};
 
-	// addPet = (pet) => {
-	// 	this.setState({
-	// 		pets: [...this.state.pets, pet ]
-	// 	})
-	// }
-
 	filterHandler = e => {
 		this.setState({
 			filterBy: e.target.name,
@@ -93,7 +83,6 @@ class HomeContainer extends Component {
 			//   this.props.history.push('/pets');}
 		);
 	};
-	//
 
 	likeHandler = id => {
 		let likedPet = this.state.pets.find(pet => pet.id === id);
@@ -120,16 +109,12 @@ class HomeContainer extends Component {
 })
   } 
 
-  deleteFave = (id) => {
-	  console.log('hi')
-	fetch(`http://localhost:3001/api/v1/favorites/${id}`, {
-		method: "DELETE",
-		headers:{
-			'content-type': 'application/json'
-		}
-	})
-
-  }
+  hidePet = (id) =>{
+		let newPets = this.state.pets.filter(pet => pet.id !== id)
+		this.setState({
+			pets: newPets
+	  })
+   }
 
 	render() {
 
@@ -149,38 +134,37 @@ class HomeContainer extends Component {
 				<NavBar
 					filterBy={this.state.filterBy}
 					filterHandler={this.filterHandler}
-					user={this.state.currentUser}
-				/>
-				<PetsContainer />
+					user={this.state.currentUser}/>
 				<Router>
 					<Route
-						exact
-						path='/pets/:id'
+						exact path='/pets/:id'
 						render={routerProps => (
 							<PetPage
 								pets={this.state.pets}
 								{...routerProps}
 								likes={this.state.likes}
-								likeHandler={this.likeHandler}
-							/>
+								likeHandler={this.likeHandler}/>
 						)}
 					/>
 					<Route
 						exact path='/pets'
 						render={routerProps => (
-							<PetCard  pets={filteredPets} {...routerProps} />
+							<PetCard  pets={filteredPets} 
+							{...routerProps} 
+							hidePet={this.hidePet} />
 						)}
 					/>
-					<Route path='/about' component={About} />
 					<Route
 						path='/contact'
-						render={routerProps => <ContactForm {...routerProps} />}
+						render={routerProps => 
+						<ContactForm {...routerProps} />}
 					/>
 					<Route exact path='/' component={Home} />
 					<Route
 						exact path='/login'
 						render={routerProps => (
-							<Login setUser={this.setUser} {...routerProps} />
+							<Login setUser={this.setUser} 
+							{...routerProps} />
 						)}
 					/>
 					<Route
@@ -189,19 +173,12 @@ class HomeContainer extends Component {
 							<LostPet {...routerProps} addPet={this.addPet} />
 						)}
 					/>
-					{/* <Route
-						exact path='/favorites'
-						render={routerProps => (
-							<FavoritesContainer
-								{...routerProps}
-								pets={this.state.favorites}
-							/>
-						)}
-					/> */}
 					<Route
 						exact path='/profile_page'
 						render={routerProps => (
-							<UserProfile {...routerProps}  user={this.state.currentUser} pets={this.state.pets} deleteFave={this.deleteFave} />
+							<UserProfile {...routerProps}  
+							user={this.state.currentUser} 
+							pets={this.state.pets} />
 						)}
 					/>
 				</Router>

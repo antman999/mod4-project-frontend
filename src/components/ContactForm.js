@@ -14,7 +14,7 @@ class ContactForm extends React.Component{
     }
   
     submitHandler = () => {
-        alert(`Successfully Submitted ${this.state.inquiry}`)
+        alert(`Successfully Submitted Message: ${this.state.inquiry}`)
         this.setState({
             email: '',
             inquiry: ''
@@ -24,9 +24,9 @@ class ContactForm extends React.Component{
     render(){
     return(
         <div className='contact-form'>
-            <h1>Contact Form</h1>
+            <h3>We'd Love to Hear from You!</h3>
             <form >
-                <label>Contact us!</label>
+                <label>Send us a message!</label>
                 <br></br>
                 <input onChange={this.changeHandler} type="text" name='email' value={this.state.email}placeholder="email address" />
                 <br></br>

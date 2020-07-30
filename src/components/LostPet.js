@@ -97,39 +97,34 @@ class LostPet extends React.Component {
 							/>
 						)}
 
-						<div className='card' style={{ margin: '25px' }}>
-							{this.state.lostPets.map(lostPet => (
-								<div>
-									<>
-										<Card style={{ width: '18rem' }}>
-											<Card.Img
-												className='lostpic'
-												variant='top'
-												src={lostPet.img_url}
-											/>
-											<Card.Body className='cards'>
-												<Card.Title>Lost Friend</Card.Title>
-												<Card.Text>Case Number: {lostPet.id}</Card.Text>
-												<Card.Text>
-													Location Found/lost: {lostPet.location}
-												</Card.Text>
-												<Card.Text>
-													Found Pet Type/description: {lostPet.pet_type}
-												</Card.Text>
-												<button
-													onClick={this.moreInfo}
-													id={lostPet.id}
-													class='btn btn-outline-primary'>
-													Have More Info?
-												</button>
-											</Card.Body>
-										</Card>
-									</>
-								</div>
-							))}
-						</div>
-					</div>
-				);
+                {this.state.form ? null 
+                : <LostForm 
+                  petType={this.state.pet_type}
+                  location={this.state.location}
+                  imgUrl={this.state.img_url}
+                  formHandler={this.formHandler} 
+                  submitHandler={this.submitHandler} />}
+                
+                <div className="card">
+                {this.state.lostPets.map(lostPet => 
+                
+                <div className="lost-card-body">
+                    <>
+                    <img className="lost-card-pic" src={lostPet.img_url} /> 
+                    <h3 className="lost-title">Case Number: {lostPet.id}</h3>
+                    <h3 className="lost-title">Location Found: {lostPet.location}</h3>
+                    <h5 className="lost-subtitle">Found Pet Type: {lostPet.pet_type}</h5>
+                    <button onClick={this.moreInfo} 
+                    id={lostPet.id} class='btn btn-outline-primary'>Have More Info?</button>
+                    </>
+                
+                </div>
+                 )}
+                </div> 
+
+
+            </div>
+        )
     }
 }
 

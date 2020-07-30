@@ -7,7 +7,15 @@ class FavoritesContainer extends React.Component {
         user: null
     }
     
+    componentDidMount(){
+        if(this.props.user === true){
+        this.setState({
+            user: this.props.user
+        })
+       }
+    }
     
+   
     fetchFaves = () => {
         fetch(`http://localhost:3001/api/v1/users/${this.props.user.id}`)
         .then(res => res.json())
@@ -16,8 +24,9 @@ class FavoritesContainer extends React.Component {
                 user: data
             })
         })
-    
+      
     }
+
 
     // componentDidMount(){
     //     this.fetchFaves()
@@ -33,11 +42,11 @@ class FavoritesContainer extends React.Component {
     return (
         <div className='favorites-container'>
            <h1 className="favorites-header">Favorites!</h1>
-        {/* {this.props.user ? this.componentDidMount() : null } */}
+        {this.props.user ? this.componentDidMount() : null } 
         {this.props.user ? this.fetchFaves() : null }
-        {this.state.user ? this.state.user.favorites.map(fave => <div className="fave"><a href={`http://localhost:3000/pets/${fave.pet_id}`}>Pet #{fave.pet_id}!</a></div>)
+        {this.state.user ? this.state.user.favorites.map(fave => <div className="fave"><a href={`http://localhost:3000/pets/${fave.pet_id}`}>Pet #{fave.pet_id}!</a> </div>)
           :
-          ''
+          'Please Login or Sign Up to Make Favorites'
         }
         </div>
     )

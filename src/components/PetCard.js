@@ -49,6 +49,12 @@ const PetCard = props => {
 									class='btn btn-outline-primary'>
 									See More Info
 								</button>
+								<button
+									onClick={() => props.hidePet(pet.id)}
+									type='button'
+									class='btn btn-outline-danger'>
+									Too Sad. Can't See This
+								</button>
 							</div>
 						))}
 					</div>
@@ -56,7 +62,7 @@ const PetCard = props => {
 
                 <Col xs={7}>
                     {/* <a href='/lost'> */}
-                    <h4 className='petHome'>Lost Buddies </h4>
+                    <h4 className='petHome'>Thanks to our Partners</h4>
 					
 					{/* </a> */}
 
