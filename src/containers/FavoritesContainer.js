@@ -7,18 +7,21 @@ class FavoritesContainer extends React.Component {
         user: null
     }
     
-
-
+    
     fetchFaves = () => {
-            fetch(`http://localhost:3001/api/v1/users/${this.props.user.id}`)
-            .then(res => res.json())
-            .then(data => {
-            this.setState({
+        fetch(`http://localhost:3001/api/v1/users/${this.props.user.id}`)
+        .then(res => res.json())
+        .then(data => {
+        this.setState({
                 user: data
             })
-            })
+        })
     
     }
+
+    // componentDidMount(){
+    //     this.fetchFaves()
+    // }
     
 
     
@@ -30,7 +33,8 @@ class FavoritesContainer extends React.Component {
     return (
         <div className='favorites-container'>
            <h1 className="favorites-header">Favorites!</h1>
-        { this.props.user ? this.fetchFaves() : null }
+        {/* {this.props.user ? this.componentDidMount() : null } */}
+        {this.props.user ? this.fetchFaves() : null }
         {this.state.user ? this.state.user.favorites.map(fave => <div className="fave"><a href={`http://localhost:3000/pets/${fave.pet_id}`}>Pet #{fave.pet_id}!</a></div>)
           :
           ''

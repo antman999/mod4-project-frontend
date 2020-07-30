@@ -71,7 +71,7 @@ class LostPet extends React.Component {
     render(){
         console.log(this.state)
         return(
-            <div>
+            <div className="lost-page">
                
                 <h3 className="create-header">Lost Pets</h3>
                 <p>Unfortunately, sometimes our furry friends get a little lost. Here's a forum to post found pets and help relocate them to their families.</p>
@@ -87,8 +87,10 @@ class LostPet extends React.Component {
                   imgUrl={this.state.img_url}
                   formHandler={this.formHandler} 
                   submitHandler={this.submitHandler} />}
+                
+                <div className="card">
                 {this.state.lostPets.map(lostPet => 
-              
+                
                 <div className="card-body">
                     <>
                     <img className="card-pic" src={lostPet.img_url} /> 
@@ -101,7 +103,7 @@ class LostPet extends React.Component {
                 
                 </div>
                  )}
-
+                </div> 
 
 
             </div>

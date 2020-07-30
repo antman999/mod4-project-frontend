@@ -79,7 +79,7 @@ class Login extends React.Component {
 	render() {
 		console.log(this.props)
 		return (
-			<div>
+			<div className='login-form'>
 				<h3 className='login-header'>Login!</h3>
 				<form onSubmit={this.handleSubmit}>
 					<input
@@ -115,6 +115,7 @@ class Login extends React.Component {
 						type='text'
 						placeholder='Country'
 					/>
+					 <br></br>
 					<input
 						name='city'
 						value={this.state.city}
@@ -122,6 +123,7 @@ class Login extends React.Component {
 						type='text'
 						placeholder='city'
 					/>
+					 <br></br>
 					<input
 						name='password'
 						value={this.state.password}
@@ -129,7 +131,7 @@ class Login extends React.Component {
 						type='password'
 						placeholder='password'
 					/>
-
+                     <br></br>
 					<input
 						name='passwordC'
 						value={this.state.passwordC}
@@ -137,7 +139,7 @@ class Login extends React.Component {
 						type='password'
 						placeholder=' confirm password'
 					/>
-
+                     <br></br>
 					<button type='submit' class='btn btn-primary'>
 						Sign Up
 					</button>
