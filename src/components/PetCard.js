@@ -49,6 +49,12 @@ const PetCard = props => {
 									class='btn btn-outline-primary'>
 									See More Info
 								</button>
+								<button
+									onClick={() => props.hidePet(pet.id)}
+									type='button'
+									class='btn btn-outline-danger'>
+									Too Sad. Can't See This
+								</button>
 							</div>
 						))}
 					</div>

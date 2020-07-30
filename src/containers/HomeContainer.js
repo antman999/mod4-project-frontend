@@ -131,6 +131,23 @@ class HomeContainer extends Component {
 
   }
 
+  hidePet = (id) =>{
+	//   console.log('hi')
+	// fetch(`https://api.petfinder.com/v2/animals/${id}`, {
+	// 	method: 'DELETE',
+	// 	headers: {
+	// 		Accept: 'application/json',
+	// 	}
+	// })
+	// .then(resp => resp.json())
+	// .then( () => {
+		let newPets = this.state.pets.filter(pet => pet.id !== id)
+		this.setState({
+			pets: newPets
+	  })
+	//  })
+   }
+
 	render() {
 
 		let filteredPets = [...this.state.pets.filter(pets => pets.photos.length>=1)];
@@ -168,7 +185,7 @@ class HomeContainer extends Component {
 					<Route
 						exact path='/pets'
 						render={routerProps => (
-							<PetCard  pets={filteredPets} {...routerProps} />
+							<PetCard  pets={filteredPets} {...routerProps} hidePet={this.hidePet} />
 						)}
 					/>
 					<Route path='/about' component={About} />
