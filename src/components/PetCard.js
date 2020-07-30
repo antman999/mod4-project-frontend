@@ -61,11 +61,17 @@ const PetCard = props => {
 				</Col>
 
                 <Col xs={7}>
-                    {/* <a href='/lost'> */}
+                    
                     <h4 className='petHome'>Thanks to our Partners</h4>
-					
+					<img className="sponsor-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/PetSmart.svg/1280px-PetSmart.svg.png" 
+					alt="Pet Smart" />
+					<img className="sponsor-image" src="https://allvectorlogo.com/img/2017/05/purina-logo.png" alt="Purina" />
+					<img className="sponsor-image" src="https://logodix.com/logo/234294.png" alt="Chewy" />
+					<img className="sponsor-image" src="https://photos.prnewswire.com/prnfull/20060731/NYM024LOGO" alt="ASPCA" />
+					<img className="sponsor-image" src="https://www.jamiesale-cartoonist.com/wp-content/uploads/cartoon-cat-free.png" alt="Cat" />
+					<img className="sponsor-image" src="https://petguidereviews.com/wp-content/uploads/2019/02/cartoon-dog-names.jpg" alt="Dog" />
 					{/* </a> */}
-
+                
 				</Col>
 			</Row>
 		</>
