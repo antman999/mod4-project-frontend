@@ -50,7 +50,12 @@ const NavBar = (props) => {
 							href='/login'
 							tabindex='-1'
 							aria-disabled='true'>
-							{props.user? props.user.first_name :"Sign Up / Login"}
+							{props.user? 'Welcome' + ' ' + props.user.first_name :"Sign Up / Login"}
+						</a>
+					</li>
+					<li className='nav-item'>
+						<a className='otherNav' href="/profile_page">
+						My Profile
 						</a>
 					</li>
 				</ul>
