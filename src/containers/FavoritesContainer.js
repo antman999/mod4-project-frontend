@@ -17,7 +17,7 @@ class FavoritesContainer extends React.Component {
                 user: data
             })
             })
-        
+    
     }
     
 
@@ -29,11 +29,11 @@ class FavoritesContainer extends React.Component {
 
     return (
         <div className='favorites-container'>
-           <h1>Favorites!</h1>
+           <h1 className="favorites-header">Favorites!</h1>
         { this.props.user ? this.fetchFaves() : null }
-        {this.state.user ? this.state.user.favorites.map(fave => <div><a href={`http://localhost:3000/pets/${fave.pet_id}`}>Pets!</a></div>)
+        {this.state.user ? this.state.user.favorites.map(fave => <div className="fave"><a href={`http://localhost:3000/pets/${fave.pet_id}`}>Pet #{fave.pet_id}!</a></div>)
           :
-          'hello'
+          ''
         }
         </div>
     )

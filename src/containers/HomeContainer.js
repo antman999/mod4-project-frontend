@@ -118,6 +118,17 @@ class HomeContainer extends Component {
 })
   } 
 
+  deleteFave = (id) => {
+	  console.log('hi')
+	fetch(`http://localhost:3001/api/v1/favorites/${id}`, {
+		method: "DELETE",
+		headers:{
+			'content-type': 'application/json'
+		}
+	})
+
+  }
+
 	render() {
 		console.log(this.state)
 		let filteredPets = [...this.state.pets];
@@ -180,7 +191,7 @@ class HomeContainer extends Component {
 					<Route
 						exact path='/profile_page'
 						render={routerProps => (
-							<UserProfile {...routerProps}  user={this.state.currentUser} pets={this.state.pets} />
+							<UserProfile {...routerProps}  user={this.state.currentUser} pets={this.state.pets} deleteFave={this.deleteFave} />
 						)}
 					/>
 				</Router>
