@@ -166,8 +166,7 @@ class HomeContainer extends Component {
 						)}
 					/>
 					<Route
-						exact
-						path='/pets'
+						exact path='/pets'
 						render={routerProps => (
 							<PetCard  pets={filteredPets} {...routerProps} />
 						)}
@@ -179,15 +178,13 @@ class HomeContainer extends Component {
 					/>
 					<Route exact path='/' component={Home} />
 					<Route
-						exact
-						path='/login'
+						exact path='/login'
 						render={routerProps => (
 							<Login setUser={this.setUser} {...routerProps} />
 						)}
 					/>
 					<Route
-						exact
-						path='/lost'
+						exact path='/lost'
 						render={routerProps => (
 							<LostPet {...routerProps} addPet={this.addPet} />
 						)}
