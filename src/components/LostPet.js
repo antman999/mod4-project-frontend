@@ -87,7 +87,7 @@ class LostPet extends React.Component {
 							</button>
 						</div>
 
-						{this.state.form ? null : (
+						{/* {this.state.form ? null : (
 							<LostForm
 								petType={this.state.pet_type}
 								location={this.state.location}
@@ -95,7 +95,7 @@ class LostPet extends React.Component {
 								formHandler={this.formHandler}
 								submitHandler={this.submitHandler}
 							/>
-						)}
+						)} */}
 
                 {this.state.form ? null 
                 : <LostForm 
