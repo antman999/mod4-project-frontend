@@ -90,7 +90,7 @@ class HomeContainer extends Component {
 				currentUser: null,
 			},
 			() => {
-				localStorage.removeItem('token');
+				localStorage.removeItem('user_id');
 				// this.props.history.push('/login');
 			}
 		);
