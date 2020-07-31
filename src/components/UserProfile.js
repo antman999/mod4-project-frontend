@@ -15,7 +15,7 @@ const UserProfile = (props) => {
             <h5>Name: {props.user ? props.user.first_name + ' ' + props.user.last_name : 'No Name Provided'}</h5>
             <h5>Email Address: {props.user ? props.user.email : 'None Provided'}</h5>
             </div>
-            <button onClick={props.logout}>log out</button>
+            <button onClick={props.logout}><a href="/login">Log Out</a></button>
         </div>
 
     )

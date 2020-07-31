@@ -5,18 +5,10 @@ import HomeContainer from './containers/HomeContainer';
 function App() {
   return (
     <div>
-      <Router>
-     					<Route
-						path='/'
-						render={routerProps => (
-							<HomeContainer
-						
-								{...routerProps}
-							
-							/>
-						)}
-					/>
-   </Router>
+
+
+							<HomeContainer />
+				
     </div>
   );
 }
