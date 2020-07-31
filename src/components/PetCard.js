@@ -91,11 +91,27 @@ const PetCard = props => {
 				<Col xs={11}>
 					<h4 className='petHome'>Resources For New Parents</h4>
 					<ListGroup>
-						<ListGroup.Item>Cras justo odio</ListGroup.Item>
-						<ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-						<ListGroup.Item>Morbi leo risus</ListGroup.Item>
-						<ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
-						<ListGroup.Item>Vestibulum at eros</ListGroup.Item>
+						<ListGroup.Item>
+							<a href='https://www.hillspet.com/dog-care/new-pet-parent/ten-things-to-do-after-adopting-a-dog'>
+								preparing for adopting
+							</a>
+						</ListGroup.Item>
+						<ListGroup.Item>
+							<a href='https://www.cesarsway.com/8-essential-steps-to-bringing-a-new-dog-into-the-home/'>
+								Things to do After Adopting
+							</a>
+						</ListGroup.Item>
+						<ListGroup.Item>
+							<a href='https://www.petfinder.com/dogs/bringing-a-dog-home/tips-for-first-30-days-dog/'>
+								First 30 days of having your new pet
+							</a>
+						</ListGroup.Item>
+						<ListGroup.Item>
+							<a href='https://petcube.com/blog/feral-cats-and-you-tips-to-put-wild-cats-at-ease/'>
+								Adopting a Feral Kitten
+							</a>
+						</ListGroup.Item>
+					
 					</ListGroup>
 				</Col>
 			</Row>
