@@ -6,6 +6,8 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import LostPet from './LostPet'
+import ListGroup from 'react-bootstrap/ListGroup';
+
 
 const PetCard = props => {
 	console.log(props.pets);
@@ -60,18 +62,41 @@ const PetCard = props => {
 					</div>
 				</Col>
 
-                <Col xs={7}>
-                    
-                    <h4 className='petHome'>Thanks to our Partners</h4>
-					<img className="sponsor-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/PetSmart.svg/1280px-PetSmart.svg.png" 
-					alt="Pet Smart" />
-					<img className="sponsor-image" src="https://allvectorlogo.com/img/2017/05/purina-logo.png" alt="Purina" />
-					<img className="sponsor-image" src="https://logodix.com/logo/234294.png" alt="Chewy" />
-					<img className="sponsor-image" src="https://photos.prnewswire.com/prnfull/20060731/NYM024LOGO" alt="ASPCA" />
+				<Col xs={7}>
+					<h4 className='petHome'>Thanks to our Partners</h4>
+					<img
+						className='sponsor-image'
+						src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/PetSmart.svg/1280px-PetSmart.svg.png'
+						alt='Pet Smart'
+					/>
+					<img
+						className='sponsor-image'
+						src='https://allvectorlogo.com/img/2017/05/purina-logo.png'
+						alt='Purina'
+					/>
+					<img
+						className='sponsor-image'
+						src='https://logodix.com/logo/234294.png'
+						alt='Chewy'
+					/>
+					<img
+						className='sponsor-image'
+						src='https://photos.prnewswire.com/prnfull/20060731/NYM024LOGO'
+						alt='ASPCA'
+					/>
 					{/* <img className="sponsor-image" src="https://www.jamiesale-cartoonist.com/wp-content/uploads/cartoon-cat-free.png" alt="Cat" />
 					<img className="sponsor-image" src="https://petguidereviews.com/wp-content/uploads/2019/02/cartoon-dog-names.jpg" alt="Dog" /> */}
 					{/* </a> */}
-                
+				</Col>
+				<Col xs={11}>
+					<h4 className='petHome'>Resources For New Parents</h4>
+					<ListGroup>
+						<ListGroup.Item>Cras justo odio</ListGroup.Item>
+						<ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
+						<ListGroup.Item>Morbi leo risus</ListGroup.Item>
+						<ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
+						<ListGroup.Item>Vestibulum at eros</ListGroup.Item>
+					</ListGroup>
 				</Col>
 			</Row>
 		</>

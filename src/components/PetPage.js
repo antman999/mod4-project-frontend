@@ -89,6 +89,7 @@ const PetPage = props => {
 			{displayPet ? (
 				<div>
 					<Container fluid='md'>
+					
 						<Row>
 							<Col>
 								<Carousel className='cp'>
@@ -184,10 +185,7 @@ const PetPage = props => {
 										<Card.Title>Contact Us</Card.Title>
 										<Card.Text>Email: {displayPet.contact.email}</Card.Text>
 										<Card.Text>Phone: {displayPet.contact.phone}</Card.Text>
-									
 
-										
-                   
 										<Button href={displayPet.url} variant='primary'>
 											Start Adoption
 										</Button>

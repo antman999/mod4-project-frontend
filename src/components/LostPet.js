@@ -105,15 +105,15 @@ class LostPet extends React.Component {
                   formHandler={this.formHandler} 
                   submitHandler={this.submitHandler} />}
                 
-                <div className="card">
+                <div className="card-box">
                 {this.state.lostPets.map(lostPet => 
                 
-                <div className="lost-card-body">
+                <div className="card-box">
                     <>
                     <img className="lost-card-pic" src={lostPet.img_url} /> 
-                    <h3 className="lost-title">Case Number: {lostPet.id}</h3>
-                    <h3 className="lost-title">Location Found: {lostPet.location}</h3>
-                    <h5 className="lost-subtitle">Found Pet Type: {lostPet.pet_type}</h5>
+                    <h3 className="logo">ID Number: {lostPet.id}</h3>
+                    <p className="lost-title">Location lost/found: {lostPet.location}</p>
+                    <p className="lost-subtitle">Found Pet Type: {lostPet.pet_type}</p>
                     <button onClick={this.moreInfo} 
                     id={lostPet.id} class='btn btn-outline-primary'>Have More Info?</button>
                     </>
