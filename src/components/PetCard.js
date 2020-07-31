@@ -68,8 +68,8 @@ const PetCard = props => {
 					<img className="sponsor-image" src="https://allvectorlogo.com/img/2017/05/purina-logo.png" alt="Purina" />
 					<img className="sponsor-image" src="https://logodix.com/logo/234294.png" alt="Chewy" />
 					<img className="sponsor-image" src="https://photos.prnewswire.com/prnfull/20060731/NYM024LOGO" alt="ASPCA" />
-					<img className="sponsor-image" src="https://www.jamiesale-cartoonist.com/wp-content/uploads/cartoon-cat-free.png" alt="Cat" />
-					<img className="sponsor-image" src="https://petguidereviews.com/wp-content/uploads/2019/02/cartoon-dog-names.jpg" alt="Dog" />
+					{/* <img className="sponsor-image" src="https://www.jamiesale-cartoonist.com/wp-content/uploads/cartoon-cat-free.png" alt="Cat" />
+					<img className="sponsor-image" src="https://petguidereviews.com/wp-content/uploads/2019/02/cartoon-dog-names.jpg" alt="Dog" /> */}
 					{/* </a> */}
                 
 				</Col>

@@ -51,10 +51,7 @@ class Login extends React.Component {
 					password_digest: this.state.password,
 					first_name: this.state.firstName,
 					last_name: this.state.lastName,
-					pet_preference: this.state.petPreference,
-					country: this.state.country,
-					city: this.state.city,
-					zip: this.state.zip,
+				
 				}),
 			})
 				.then(res => res.json())

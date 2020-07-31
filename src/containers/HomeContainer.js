@@ -84,6 +84,18 @@ class HomeContainer extends Component {
 		);
 	};
 
+	logout = () => {
+		this.setState(
+			{
+				currentUser: null,
+			},
+			() => {
+				localStorage.removeItem('token');
+				this.props.history.push('/login');
+			}
+		);
+	};
+
 	likeHandler = id => {
 		let likedPet = this.state.pets.find(pet => pet.id === id);
 		fetch('http://localhost:3001/api/v1/favorites', {
@@ -99,26 +111,25 @@ class HomeContainer extends Component {
 		})
 			.then(resp => resp.json())
 			.then(data => {
-			let foundPet = this.state.pets.find(pet => pet.id === data.pet_id)
-			this.setState({favorites: foundPet})
-	
-	  
-	}) 
-	this.setState({ 
-		likes: !this.state.likes,
-})
-  } 
-
-  hidePet = (id) =>{
-		let newPets = this.state.pets.filter(pet => pet.id !== id)
+				let foundPet = this.state.pets.find(pet => pet.id === data.pet_id);
+				this.setState({ favorites: foundPet });
+			});
 		this.setState({
-			pets: newPets
-	  })
-   }
+			likes: !this.state.likes,
+		});
+	};
+
+	hidePet = id => {
+		let newPets = this.state.pets.filter(pet => pet.id !== id);
+		this.setState({
+			pets: newPets,
+		});
+	};
 
 	render() {
-
-		let filteredPets = [...this.state.pets.filter(pets => pets.photos.length>=1)];
+		let filteredPets = [
+			...this.state.pets.filter(pets => pets.photos.length >= 1),
+		];
 		if (this.state.filterBy === 'dogs') {
 			filteredPets = filteredPets.filter(pet => pet.type === 'Dog');
 		} else if (this.state.filterBy === 'cats') {
@@ -134,51 +145,61 @@ class HomeContainer extends Component {
 				<NavBar
 					filterBy={this.state.filterBy}
 					filterHandler={this.filterHandler}
-					user={this.state.currentUser}/>
+					user={this.state.currentUser}
+				/>
 				<Router>
 					<Route
-						exact path='/pets/:id'
+						exact
+						path='/pets/:id'
 						render={routerProps => (
 							<PetPage
 								pets={this.state.pets}
 								{...routerProps}
 								likes={this.state.likes}
-								likeHandler={this.likeHandler}/>
+								likeHandler={this.likeHandler}
+							/>
 						)}
 					/>
 					<Route
-						exact path='/pets'
+						exact
+						path='/pets'
 						render={routerProps => (
-							<PetCard  pets={filteredPets} 
-							{...routerProps} 
-							hidePet={this.hidePet} />
+							<PetCard
+								pets={filteredPets}
+								{...routerProps}
+								hidePet={this.hidePet}
+							/>
 						)}
 					/>
 					<Route
 						path='/contact'
-						render={routerProps => 
-						<ContactForm {...routerProps} />}
+						render={routerProps => <ContactForm {...routerProps} />}
 					/>
 					<Route exact path='/' component={Home} />
 					<Route
-						exact path='/login'
+						exact
+						path='/login'
 						render={routerProps => (
-							<Login setUser={this.setUser} 
-							{...routerProps} />
+							<Login setUser={this.setUser} {...routerProps} />
 						)}
 					/>
 					<Route
-						exact path='/lost'
+						exact
+						path='/lost'
 						render={routerProps => (
 							<LostPet {...routerProps} addPet={this.addPet} />
 						)}
 					/>
 					<Route
-						exact path='/profile_page'
+						exact
+						path='/profile_page'
 						render={routerProps => (
-							<UserProfile {...routerProps}  
-							user={this.state.currentUser} 
-							pets={this.state.pets} />
+							<UserProfile
+								{...routerProps}
+								user={this.state.currentUser}
+								pets={this.state.pets}
+								logout={this.logout}
+							/>
 						)}
 					/>
 				</Router>
