@@ -14,7 +14,7 @@ const Header = () => {
 					<div class='row h-100 align-items-center'>
 						<div class='col-12 text-center'>
 							<h1 class='font-weight-bold'>We All Deserve A Second Chance.</h1>
-							<Button variant='success'>Sign Up</Button>
+							<Button variant='success'><a href="/login">Sign Up</a></Button>
 						</div>
 					</div>
 				</div>
